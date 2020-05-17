@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-/* Requerimos el controlador */
+/* Vamos a requerir el controlador */
 
 const controllers = require('../controllers/seriesController.js');
 
