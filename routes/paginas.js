@@ -9,10 +9,6 @@ const controllers = require('../controllers/seriesController.js');
 
 router.get('/', controllers.index);
 
-// PRUEBA
-
-router.get('/', controllers.index);
-
 // PAGINA 1 
 
 router.get('/inicio', controllers.pagina1);
