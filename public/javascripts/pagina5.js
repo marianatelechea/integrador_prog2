@@ -32,7 +32,7 @@ window.onload = function() {
 
         li += '<li>'
         li += '<h2>' + title + '</h2>'
-        li += '<img src="' + imgPath + imagenSerie +  `" onError="this.src='Error404.png'">`
+        li += '<img src="' + imgPath + imagenSerie +  `" onError="this.src='/images/PAGINA5/Error404.png'">`
 
         li += '<h4>' + sinopsis + '</h4>'
         li += '<h4>' + "Fecha de estreno: " + fechaEstreno + '</h4>'

@@ -16,7 +16,7 @@ window.onload = function() {
       contenedorSeries.innerHTML +=`
       <li>
       <a href='/series/descripcion?id=${data.results[i].id}' >
-        <img src='https://image.tmdb.org/t/p/original/${data.results[i].poster_path}' onError="this.src='Error404.png'">
+        <img src='https://image.tmdb.org/t/p/original/${data.results[i].poster_path}' onError="this.src='/images/PAGINA4/Error404.png'">
         </a>
         </li>
         `
@@ -54,7 +54,7 @@ document.querySelector(".buscador").onsubmit = function(e) {
 
   if (recuperoStorage == "") {
 
-    document.querySelector(".error").innerHTML = "<img src='erorbusc.png'>"
+    document.querySelector(".error").innerHTML = "<img src='/images/PAGINA4/erorbusc.png'>"
     document.querySelector(".error").style.backgroundColor = "rgb(160, 152, 133)"
   }
 
