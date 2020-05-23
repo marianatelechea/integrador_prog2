@@ -9,21 +9,7 @@ module.exports = {
 
     registro:(req, res) => { return res.render('registro'); },
 
-    pagina1: (req, res) => { 
-        db.Usuario
-        .findAll()
-        .then(series => {
-            return res.render ('inicio', {
-                listaSeries:series
-            });
-        })
-        .catch ((error) =>{
-            return res.send (error);
-        })
-    }, 
-        
-        
-       // return res.render('inicio'); },
+    pagina1: (req, res) => { return res.render ('inicio'); }, 
 
     pagina2: (req, res) => { return res.render('generos'); },
 
