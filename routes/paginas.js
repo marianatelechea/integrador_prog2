@@ -45,4 +45,8 @@ router.get('/busc-avanzado', controllers.pagina6);
 
 router.get('/favoritos', controllers.pagina7);
 
+// PAGINA 7 
+
+router.get('/reseñas', controllers.pagina8);
+
 module.exports = router;

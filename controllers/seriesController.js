@@ -23,5 +23,7 @@ module.exports = {
 
     pagina7:(req, res) => {  return res.render('seriesFav');},
 
+    pagina8:(req, res) => {  return res.render('reseñas');},
+
 
 };
