@@ -9,6 +9,14 @@ const controllers = require('../controllers/seriesController.js');
 
 router.get('/', controllers.index);
 
+// PAGINA INGRESO
+
+router.get('/ingreso', controllers.ingreso);
+
+// PAGINA REGISTRO
+
+router.get('/registro', controllers.registro);
+
 // PAGINA 1 
 
 router.get('/inicio', controllers.pagina1);

@@ -80,3 +80,72 @@ h3{
 a:hover{
   background: black;
 }
+
+/* PROGRAMACION II */
+
+/* Página de Ingreso */
+
+form {
+  padding: 8%;
+  display: contents;
+}
+
+.textos {
+  font-size:1.5em ;
+  font-family: PT Sans Narrow;
+  padding: 12px;
+  width: 40%;
+  border-radius: 41px;
+  margin-bottom: 15px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: floralwhite;
+  border: 0;
+  font-family: PT Sans Narrow;
+  font-size: 19px;
+  text-decoration: none;
+  text-align: center;
+  margin: 1%;
+}
+
+.input_ingreso{
+  font-size:1.5em ;
+  font-family: PT Sans Narrow;
+  padding: 12px;
+  width: 30%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  background-color: rgba(255, 255, 255, 0.92);
+  color: black;
+  border: 0;
+  font-family: PT Sans Narrow;
+  font-size: 19px;
+  text-decoration: none;
+  text-align: center;
+  margin: 1%;
+}
+
+.logo_ingreso{
+  width: 18%;
+  padding-top: 1%;
+}
+
+/* Página de Registro */
+
+
+.text_regis {
+  font-size:1.5em ;
+  font-family: PT Sans Narrow;
+  padding: 12px;
+  width: 40%;
+  border-radius: 41px;
+  margin-bottom: 15px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: floralwhite;
+  border: 0;
+  font-family: PT Sans Narrow;
+  font-size: 19px;
+  text-decoration: none;
+  text-align: center;
+  margin: 0%;
+}
+

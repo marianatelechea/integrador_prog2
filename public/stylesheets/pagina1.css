@@ -546,5 +546,17 @@ footer h3 {
     }
 
 
+/* PROGRAMACION II */
+
+/* Página de Ingreso */
+
+  form {
+      padding: 13%;
+    }
+  
+  .textos {
+      font-size:1.5 em ;
+  }
+
 
     }

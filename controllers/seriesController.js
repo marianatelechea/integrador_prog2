@@ -2,6 +2,10 @@ module.exports = {
 
     index:(req, res) => { return res.render('Carátula'); },
 
+    ingreso:(req, res) => { return res.render('ingreso'); },
+
+    registro:(req, res) => { return res.render('registro'); },
+
     pagina1: (req, res) => { return res.render('inicio'); },
 
     pagina2: (req, res) => { return res.render('generos'); },
