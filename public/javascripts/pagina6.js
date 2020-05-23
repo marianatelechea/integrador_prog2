@@ -36,7 +36,7 @@ var year = new URLSearchParams(location.search).get("year");
     for (var i = 0; i < 10; i++) {
       contenedorSeries.innerHTML +=`
       <li>
-      <a href="/series/descripcion?id=${data.results[i].id}">
+      <a href="/series/detalle?id=${data.results[i].id}">
         <img src='https://image.tmdb.org/t/p/original/${data.results[i].poster_path}' onError="this.src='/images/PAGINA6/Error404.png'">
         </a>
         </li>

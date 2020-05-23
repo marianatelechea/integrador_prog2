@@ -106,7 +106,7 @@ fetch("https://api.themoviedb.org/3/tv/" + idTrailer + "/videos?api_key=65eadee9
                 document.querySelector('#recomendaciones').innerHTML += `
 
                 <li>
-                  <a href='/series/descripcion?id=${series.results[i].id}'>
+                  <a href='/series/detalle?id=${series.results[i].id}'>
                     <img src='https://image.tmdb.org/t/p/original/${series.results[i].backdrop_path}' onError="this.src='Error2.png'">
                   </a>
                 </li>

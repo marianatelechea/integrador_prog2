@@ -33,7 +33,7 @@ document.querySelector('.titulo').innerText = nombreDeGenero;
           var li = ''
 
           li += '<li class="uk-animation-toggle" tabindex="0" >'
-          li += '<a href="/series/descripcion?id=' + id +'">'
+          li += '<a href="/series/detalle?id=' + id +'">'
           li += '<img class="uk-card uk-card-default uk-card-body uk-animation-fade" src=' + imgPath + imagenSerie + '>'
           li += '</a>'
           li += '</li>'

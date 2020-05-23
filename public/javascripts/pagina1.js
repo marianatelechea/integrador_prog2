@@ -15,7 +15,7 @@ window.onload = function() {
       console.log(popu.results);
       var contenedorCarousel = document.querySelector("#contenedor-carousel");
       for(var i = 0; i < popu.results.length; i++) {
-       contenedorCarousel.innerHTML += "<a href='/series/descripcion?id=" + popu.results[i].id + "'><img src='https://image.tmdb.org/t/p/original" + popu.results[i].backdrop_path + "'></a>";
+       contenedorCarousel.innerHTML += "<a href='/series/detalle?id=" + popu.results[i].id + "'><img src='https://image.tmdb.org/t/p/original" + popu.results[i].backdrop_path + "'></a>";
 
       }
     })
@@ -36,7 +36,7 @@ window.onload = function() {
         var losMejoresCinco = document.querySelector("#lostop5");
 
         for(var i = 0; i < 5; i++) {
-          losMejoresCinco.innerHTML += "<a href='/series/descripcion?id=" + popu.results[i].id + "'><img src='https://image.tmdb.org/t/p/original" + popu.results[i].poster_path + "'></a>";
+          losMejoresCinco.innerHTML += "<a href='/series/detalle?id=" + popu.results[i].id + "'><img src='https://image.tmdb.org/t/p/original" + popu.results[i].poster_path + "'></a>";
 
         }
 
@@ -55,7 +55,7 @@ window.onload = function() {
         console.log(rated.results);
         var mejorRated = document.querySelector("#rated");
         for(var i = 0; i < 6; i++) {
-          mejorRated.innerHTML += "<a href='/series/descripcion?id=" + rated.results[i].id + "'><img src='https://image.tmdb.org/t/p/original" + rated.results[i].poster_path + "'></a>";
+          mejorRated.innerHTML += "<a href='/series/detalle?id=" + rated.results[i].id + "'><img src='https://image.tmdb.org/t/p/original" + rated.results[i].poster_path + "'></a>";
         }
 
         })
@@ -76,7 +76,7 @@ window.onload = function() {
     for(var i = 0; i < now.results.length; i++) {
       var laImagen = now.results[i].poster_path;
       console.log(laImagen)
-      contenedorCarousel.innerHTML += "</series/descripcion?id=" + now.results[i].id + "'><img src='https://image.tmdb.org/t/p/original" + laImagen + "'></a>";
+      contenedorCarousel.innerHTML += "</series/detalle?id=" + now.results[i].id + "'><img src='https://image.tmdb.org/t/p/original" + laImagen + "'></a>";
       }
     })
 
