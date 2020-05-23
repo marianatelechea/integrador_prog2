@@ -13,9 +13,18 @@ router.get('/', controllers.index);
 
 router.get('/ingreso', controllers.ingreso);
 
+// PAGINA DE GUARDADO DE FORM INGRESO
+
+router.post('/guardar-ingreso', controllers.guardar);
+
 // PAGINA REGISTRO
 
 router.get('/registro', controllers.registro);
+
+// PAGINA DE GUARDADO DE FORM REGISTRO
+
+router.post('/guardar-registro', controllers.guardar);
+
 
 // PAGINA 1 
 
@@ -45,7 +54,7 @@ router.get('/busc-avanzado', controllers.pagina6);
 
 router.get('/favoritos', controllers.pagina7);
 
-// PAGINA 7 
+// PAGINA 8 (resenias)
 
 router.get('/reseñas', controllers.pagina8);
 

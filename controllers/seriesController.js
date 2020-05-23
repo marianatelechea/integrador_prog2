@@ -25,5 +25,9 @@ module.exports = {
 
     pagina8:(req, res) => {  return res.render('reseñas');},
 
+    guardar:(req,res) => {
+        return res.send(req.body);
+    }
+
 
 };
