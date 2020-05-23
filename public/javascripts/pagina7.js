@@ -25,7 +25,7 @@ window.onload = function() {
               <h3>
                 <a href='/series/detalle?id=${serie.id}'> ${serie.name}</a>
               </h3>
-                <a href='/series/detalle?id=${serie.id}' class="uk-animation-toggle" tabindex="0">
+                <a href='/series/detallen?id=${serie.id}' class="uk-animation-toggle" tabindex="0">
                   <img class="uk-card uk-card-default uk-card-body uk-animation-fade" src='https://image.tmdb.org/t/p/original/${serie.poster_path}' onError="this.src='/images/PAGINA7/.png'">
                 </a>
             </a>
