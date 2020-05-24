@@ -13,9 +13,6 @@ router.get('/', controllers.index);
 
 router.get('/ingreso', controllers.ingreso);
 
-// PAGINA DE GUARDADO DE FORM INGRESO
-
-router.post('/guardar-ingreso', controllers.guardar);
 
 // PAGINA REGISTRO -----------------------------------------------------
 
