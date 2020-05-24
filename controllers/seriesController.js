@@ -15,7 +15,7 @@ module.exports = {
             })  
     },
 
-    // INICIO REGISTRO
+    // INICIO REGISTRO --------------------------------------------
 
     registro:(req, res) => { db.Usuario.findAll()
         .then(usuarios => {
@@ -26,7 +26,7 @@ module.exports = {
         })   
     },
 
-        /* Ruta de almacenamiento de datos de los Usuarios */
+    /* Ruta de almacenamiento de datos de los Usuarios */
 
     guardado:(req, res) => {
         db.Usuario
@@ -44,20 +44,9 @@ module.exports = {
             .catch(error => {
                 return res.send (error);
             })
-
-            //.create({
-           // nombre_usuario: req.body,
-           // apellido_usuario: req.body,
-           // email: req.body,
-           // //id_usuario: req.body.Usuario,
-           // contraseña: req.body,
-           // fecha_nacimiento: req.body,
-       // });
-
-        //res.redirect("/series")
-    },
+    }, 
     
-    // FIN REGISTRO
+    // ----------------------------------------------- FIN REGISTRO
 
     pagina1: (req, res) => {return res.render('inicio'); },
 

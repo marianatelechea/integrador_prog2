@@ -17,11 +17,16 @@ router.get('/ingreso', controllers.ingreso);
 
 router.post('/guardar-ingreso', controllers.guardar);
 
-// PAGINA REGISTRO
+// PAGINA REGISTRO -----------------------------------------------------
 
+
+/* En el link http://localhost:3000/series/registro es donde se va a mostrar el el view donde registrarnos */
 router.get('/registro', controllers.registro);
 
+/* En el link http://localhost:3000/series/guardar es donde se va a mostrar en formato JSON los datos de la registración */
 router.post('/guardar', controllers.guardado);
+
+// ----------------------------------------------- Fin PAGINA REGISTRO 
 
 // PAGINA 1 
 
