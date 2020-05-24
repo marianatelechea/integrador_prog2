@@ -17,6 +17,8 @@ router.get('/ingreso', controllers.ingreso);
 
 router.get('/registro', controllers.registro);
 
+router.post('/guardar', controllers.guardado);
+
 // PAGINA 1 
 
 router.get('/inicio', controllers.pagina1);

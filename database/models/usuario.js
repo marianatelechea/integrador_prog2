@@ -1,26 +1,45 @@
-module.exports = function (sequelize, DataTypes) {
-    const usuario = sequelize.define(
-        // Nombre del modelo
-        'Usuario',
-        
-        // Columnas de la tabla
-      {
-          nombre_usuario: DataTypes.STRING,
-          apellido_usuario: DataTypes.STRING,
-          email: DataTypes.STRING,
-          id_usuario: DataTypes.INTEGER,
-          contraseña: DataTypes.STRING,
-          fecha_nacimiento: DataTypes.DATE
-      },
+module.exports = function (sequelize, dataTypes) {
 
-      // Configuracion adicional
+    let alias = "Usuario";
 
-      {
-            tableName: 'usuarios',
-            timestamps: false
-      }
+    let cols = {
+        nombre_usuario: {
+            type: dataTypes.STRING
+        },
+        apellido_usuario: {
+            type: dataTypes.STRING
+        },
+        email: {
+            type: dataTypes.STRING
+        },
+        id_usuario:{
+            type: dataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+        }, 
+        contraseña: {
+            type: dataTypes.STRING
+        },
+        fecha_nacimiento: {
+            type: dataTypes.DATE
+        }
 
-    );
+    }
 
-    return usuario;
+    let config = {
+        tableName: "usuarios",
+        timestamps: false
+    }
+
+    let Usuario = sequelize.define(alias, cols, config);
+
+// En este punto, lo que buscamos hacer es la relación entre las tablas
+    Usuario.associate = function(models) {
+        Usuario.hasMany(models.Reseña, { // .Reseña: Es el nombre del alias del modelo Resena.js
+            as: "reseñas", // Del Usuario voy a pedir las muchas reseñas que tiene
+            foreignKey: "id_usuario"
+        });
+    }
+
+    return Usuario;
 }

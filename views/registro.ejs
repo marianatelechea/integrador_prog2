@@ -11,25 +11,35 @@
      <img src="/images/PAGINA0/LOGOMOVIFLY.png" alt="" class="logo_ingreso">
     <!--  <h2>"Las mejores series para vos"</h2>
       <h3>B I E N V E N I D O</h3> -->
-      <form action="/movies/store" method="POST">
-        <label class = "text_regis">Nombre de usuario / Email:</label>
-        <input class = "input_ingreso" type="email" name="title">
+      <form action="/series/guardar" method="POST">
+        <label class = "text_regis">Nombre del usuario:</label>
+        <input class = "input_ingreso" type="text" name="nombre_usuario">
+        <br>
+
+        <label class = "text_regis">Apellido del usuario:</label>
+        <input class = "input_ingreso" type="text" name="apellido_usuario">
+        <br>
+
+        <label class = "text_regis">Email:</label>
+        <input class = "input_ingreso" type="email" name="email">
         <br>
 
         <label class="text_regis">Contraseña:</label>
-        <input class = "input_ingreso" type="password" name="rating">
+        <input class = "input_ingreso" type="password" name="contraseña">
         <br>
 
-        <label class="text_regis">Fecha de nacimieto:</label>
-        <input class = "input_ingreso" type="date" name="rating">
+        <label class="text_regis">Fecha de nacimiento:</label>
+        <input class = "input_ingreso" type="date" name="fecha_nacimiento">
         <br>
+
+        <button type="submit" class="ingreso">REGISTRARSE</button>
 
     </form>
 
         </form>     
-         <div class="botones">
-        <a href="/series/inicio" type="button" name="button" class="ingreso">REGISTRARSE</a>
-      </div>
+       <!--  <div class="botones">
+        <a href="/series/inicio" type="submit" name="button" class="ingreso">REGISTRARSE</a>
+      </div> -->
     </div>
   </body>
 </html>
