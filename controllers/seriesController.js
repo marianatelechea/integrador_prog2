@@ -1,6 +1,13 @@
 const db = require('../database/models');
 const OP = db.Sequelize.Op;
 
+// ENCRIPTACIÓN DE PASS ----------------------------------------
+
+const bcrypt = require('bcryptjs');
+let passEncriptada = bcrypt.hashSync('root', 10);    
+
+    // ----------------------------------------- FIN DE ENCRIPTACIÓN
+
 module.exports = {
 
     index:(req, res) => { return res.render('Carátula');},
@@ -14,6 +21,7 @@ module.exports = {
             return res.send (error);
             })  
     },
+
 
     // INICIO REGISTRO --------------------------------------------
 
@@ -35,7 +43,7 @@ module.exports = {
                 apellido_usuario: req.body.apellido_usuario,
                 email: req.body.email,
             //  id_usuario: req.body.Usuario,
-                contraseña: req.body.contraseña,
+                contraseña: req.body.contraseña && passEncriptada,
                 fecha_nacimiento: req.body.fecha_nacimiento,
             })
             .then(usuarioGuardado => {
@@ -45,8 +53,9 @@ module.exports = {
                 return res.send (error);
             })
     }, 
-    
+
     // ----------------------------------------------- FIN REGISTRO
+
 
     pagina1: (req, res) => {return res.render('inicio'); },
 
