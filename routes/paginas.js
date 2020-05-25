@@ -66,4 +66,12 @@ router.get('/favoritos', controllers.pagina7);
 
 router.get('/resenas', controllers.pagina8);
 
+// PAGINA 9 (busc-usuarios)
+
+router.get('/busc-usuarios', controllers.pagina9);
+
+// PAGINA 10 (detalle-usuario)
+
+router.get('/detalle-usuario', controllers.pagina10);
+
 module.exports = router;

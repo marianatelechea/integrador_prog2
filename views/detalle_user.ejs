@@ -3,22 +3,21 @@
 <head>
   <meta charset="utf-8">
   <title>Movfly</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css" />
-  <link rel="stylesheet" href="/stylesheets/pagina4.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css" />
-  <link rel="shortcut icon" href="/images/PAGINA4/logo.ico">
-  <script src="/javascripts/pagina4.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="/stylesheets/pagina5.css">
+  <link rel="shortcut icon" href="/images/PAGINA5/logo.ico">
+  <script src="/javascripts/pagina5.js" charset="utf-8"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
   <body>
     <div class="alert alert-light" uk-alert role="alert">
-    ¡MÍNIMO 3 CARACTERES!
+      ¡MÍNIMO 3 CARACTERES!
     </div>
     <header id="header">
       <nav class="barra-navegacion">
         <ul class="ul-logo">
           <li class="li-logo">
-            <a href="/series/inicio"><img src="/images/PAGINA4/LOGOMOVIFLY.png" alt="Movfy logo" class="logo"></a>
+            <a href="/series/inicio"><img src="/images/PAGINA5/LOGOMOVIFLY.png" alt="Movfy logo" class="logo"></a>
           </li>
         </ul>
       </nav>
@@ -32,13 +31,12 @@
                 <li class="li-menu"><a class="li-black" href="#flex2">Mi Cuenta</a></li>
               </ul>
           </div>
-      </nav>
-
+     </nav>
       <nav>
         <ul class="ul-menu">
           <li class="li-menu"><a class="li-black" href="/series/inicio">Home</a></li>
         <li class="li-menu"><a class="li-black" href="/series/generos">Géneros</a></li>
-          <li class="li-menu"><a class="li-black" href="/series/busc-avanzado">Buscador</a></li>
+          <li class="li-menu"><a class="li-black" href="/series/sc-avanzado">Buscador</a></li>
             <li class="li-menu"><a class="li-black" href="/series/favoritos">Favoritos</a></li>
             <li class="li-menu"><a class="li-black" href="/series/resenas">Mis Reseñas</a></li>
             <li class="li-menu"><a class="li-black" href="/series/busc-usuarios">Usuarios</a></li>
@@ -47,43 +45,54 @@
       <div class="elbuscador">
         <form class="buscador" action="/series/buscador" method="get">
             <input type="text" name="buscador" value="" class="buscador-simple texto">
-            <input type=image src="/images/PAGINA4/buscador.png" width="17" name="" value="Buscar" class="boton">
+            <input type=image src="/images/PAGINA5/buscador.png" width="17" name="" value="Buscar" class="boton">
         </form>
       </div>
     </header>
 
-    <section class="resultado-busc">
-      <div class="elbuscador">
+    <section id="detalle-usuario">
 
-      </div>
-      <h1 class="titulo-busqueda">Resultados encontrados para la búsqueda: </h1>
-      <ul class="resultado-series">
+        <h1>
+            Nombre / Apellido de Usuario
+           <!-- <%=usuarioGuardado.nombre_usuario + " " + usuarioGuardado.apellido_usuario%> -->
+        </h1>
+        <p>
+            Email del Usuario: <!-- <%=usuarioGuardado.email%> -->
+        </p>
+        <p>
+            Contraseña encriptada: <!-- <%=usuarioGuardado.contraseña%> -->
+        </p>
 
-      </ul>
+        <p>
+            Fecha de Nacimiento: <!-- <%=usuarioGuardado.fecha_nacimiento%> --> 
+        </p>
+        <p>
+            Reseñas del Usuario: 
+        </p>
+
     </section>
 
-    <div class="error">
 
-    </div>
+
 
     <footer>
-      <img src="/images/PAGINA4/LOGOMOVIFLY.png" alt="">
+      <img src="/images/PAGINA5/LOGOMOVIFLY.png" alt="">
       <h3>Las mejores series para vos</h3>
     <div class="redes">
       <ul>
         <img src="" alt="">
         <div class="lista">
           <li>
-            <a href="https://www.facebook.com/"><img src="/images/PAGINA4/facebook.png" alt=""></a>
+            <a href="https://www.facebook.com/"><img src="/images/PAGINA5/facebook.png" alt=""></a>
           </li>
           <li>
-            <a href="https://www.twitter.com/"><img src="/images/PAGINA4/twitter.png" alt=""></a>
+            <a href="https://www.twitter.com/"><img src="/images/PAGINA5/twitter.png" alt=""></a>
           </li>
           <li>
-            <a href="https://www.instagram.com/"><img src="/images/PAGINA4/instagram.png" alt=""></a>
+            <a href="https://www.instagram.com/"><img src="/images/PAGINA5/instagram.png" alt=""></a>
           </li>
           <li>
-            <a href="https://www.youtube.com/"><img src="/images/PAGINA4/youtube.png" alt=""></a>
+            <a href="https://www.youtube.com/"><img src="/images/PAGINA5/youtube.png" alt=""></a>
           </li>
         </div>
       </ul>
@@ -98,7 +107,7 @@
     </div>
     </footer>
     <div class="post-footer">
-        <img src="/images/PAGINA4/logoTMB.png" alt="">
+        <img src="/images/PAGINA5/logoTMB.png" alt="">
         <div class="nombres">
 
 
@@ -108,7 +117,11 @@
         
         </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit-icons.min.js"></script>
+
+
+
   </body>
 </html>

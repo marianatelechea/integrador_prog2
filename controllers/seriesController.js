@@ -84,6 +84,10 @@ module.exports = {
 
     pagina8:(req, res) => {  return res.render('resenas');},
 
+    pagina9:(req, res) => {  return res.render('usuarios');},
+
+    pagina10:(req, res) => {  return res.render('detalle_user');},
+
     guardar:(req,res) => {
         return res.send(req.body);
     }
