@@ -24,10 +24,10 @@ let moduloLogin = {
         })
     },
 
-    validar: function (email, pass) {
+    validar: function (email, root) {
         return db.Usuario.findOne({
             where:{
-                email:email,
+                email: email,
                 contraseña: root
             },
         })

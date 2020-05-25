@@ -16,22 +16,27 @@ module.exports = {
     index:(req, res) => { return res.render('Carátula');},
 
 
-// INICIO REGISTRO --------------------------------------------
+// INICIO INGRESO --------------------------------------------
     
     ingreso:(req, res) => {return res.render('ingreso');},
 
     /* Ruta de verficiacion de Usuario */
 
-    verificar: (req, res) => {
-        moduloLogin.chequearUsuario(emailAValidar)
-        .then( resultado => {
-            
-        res.send(resultado)
+    verificar: (req, res) => { 
+        moduloLogin.validar(req.body.email, req.body.contraseña)
+            .then(resultado => {
+                if (req.body.email  == false ){
+                        res.send(resultado)  
+                }
+                else if (req.body.contraseña == false){
+                        res.send(resultado)
+                } else {
+                    res.redirect("/series/inicio")
+                }
         })
-
     },
-
-// ----------------------------------------------- FIN REGISTRO
+    
+// ----------------------------------------------- FIN INGRESO
 
 
 // INICIO REGISTRO --------------------------------------------
@@ -47,6 +52,7 @@ module.exports = {
 
     /* Ruta de almacenamiento de datos de los Usuarios */
 
+    // -------- PROBANDO EL TEMA DE RENAS -------------
     guardado:(req, res) => {
         db.Usuario
             .create({
@@ -64,6 +70,8 @@ module.exports = {
                 return res.send (error);
             })
     }, 
+    // -------------------------------------------------
+    
 
 // ----------------------------------------------- FIN REGISTRO
 
@@ -82,7 +90,13 @@ module.exports = {
 
     pagina7:(req, res) => {  return res.render('seriesFav');},
 
+// INICIO RESEÑA -------------------------------------------------------------------
+
     pagina8:(req, res) => {  return res.render('resenas');},
+
+    
+
+// ----------------------------------------------------------------------- FIN RESEÑA
 
     pagina9:(req, res) => {  return res.render('usuarios');},
 

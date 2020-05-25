@@ -17,7 +17,7 @@ router.get('/', controllers.index);
 router.get('/ingreso', controllers.ingreso);
 
 /* En el link http://localhost:3000/series/verificar es donde se verificara la info */
-//router.post('/verificar', controller.verificar);
+router.post('/verificar', controllers.verificar);
 
 // ------------------------------------------------ Fin PAGINA INGRESO
 
@@ -62,9 +62,13 @@ router.get('/busc-avanzado', controllers.pagina6);
 
 router.get('/favoritos', controllers.pagina7);
 
-// PAGINA 8 (resenias)
+// PAGINA 8 (resenias) ------------------------------------------------------------------------------
 
 router.get('/resenas', controllers.pagina8);
+
+//router.post('/guardado_resena', controllers.guarda_resena);
+
+// -------------------------------------------------------------------------------------------------
 
 // PAGINA 9 (busc-usuarios)
 
