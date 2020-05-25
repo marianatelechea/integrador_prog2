@@ -9,9 +9,18 @@ const controllers = require('../controllers/seriesController.js');
 
 router.get('/', controllers.index);
 
-// PAGINA INGRESO
 
+
+// PAGINA INGRESO ----------------------------------------------------
+
+/* En el link http://localhost:3000/series/ingreso es donde se va a mostrar el el view donde ingresar */
 router.get('/ingreso', controllers.ingreso);
+
+/* En el link http://localhost:3000/series/verificar es donde se verificara la info */
+//router.post('/verificar', controller.verificar);
+
+// ------------------------------------------------ Fin PAGINA INGRESO
+
 
 
 // PAGINA REGISTRO -----------------------------------------------------
@@ -55,6 +64,6 @@ router.get('/favoritos', controllers.pagina7);
 
 // PAGINA 8 (resenias)
 
-router.get('/reseñas', controllers.pagina8);
+router.get('/resenas', controllers.pagina8);
 
 module.exports = router;

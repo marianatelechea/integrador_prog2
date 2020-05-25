@@ -76,7 +76,7 @@ window.onload = function() {
     for(var i = 0; i < now.results.length; i++) {
       var laImagen = now.results[i].poster_path;
       console.log(laImagen)
-      contenedorCarousel.innerHTML += "</series/detalle?id=" + now.results[i].id + "'><img src='https://image.tmdb.org/t/p/original" + laImagen + "'></a>";
+      contenedorCarousel.innerHTML += "<a href='/series/detalle?id=" + now.results[i].id + "'><img src='https://image.tmdb.org/t/p/original" + laImagen + "'></a>";
       }
     })
 

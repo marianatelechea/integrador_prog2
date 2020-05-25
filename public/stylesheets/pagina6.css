@@ -90,7 +90,7 @@ div.alert-light{
 
 .li-menu {
   list-style-type: none;
-  font-size: 31px;
+  font-size: 26px;
   font-family: "PT Sans Narrow";
 
 }
@@ -125,7 +125,7 @@ div.alert-light{
 /* -------- BUSCADOR AVANZADO --------- */
 
 .busc-avanzado2{
-  background-image: url("FONDO.png");
+  background-image: url("/images/PAGINA6/FONDO.png");
   background-repeat: no-repeat;
   background-size: cover;
   margin-top: 34px;

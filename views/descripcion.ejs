@@ -38,7 +38,7 @@
         <li class="li-menu"><a class="li-black" href="/series/generos">Géneros</a></li>
           <li class="li-menu"><a class="li-black" href="/series/sc-avanzado">Buscador</a></li>
             <li class="li-menu"><a class="li-black" href="/series/favoritos">Favoritos</a></li>
-            <li class="li-menu"><a class="li-black" href="/series/reseñas">Mis Reseñas</a></li>
+            <li class="li-menu"><a class="li-black" href="/series/resenas">Mis Reseñas</a></li>
         </ul>
       </nav>
       <div class="elbuscador">
@@ -66,8 +66,92 @@
     <a class="uk-button uk-button-default" href="#modal-media-video" uk-toggle>Ver Trailer</a>
     <a class="uk-button uk-button-default" href="#modal-center" uk-toggle>Ver Recomendaciones</a>
       <button type="button" name="button" uk-icon="heart" id="favoritos"> Agregar a favoritos </button>
+  
+  
+<!-- PROGRAMACION II ------------------------------------------------------------------------------------------------------- --> 
 
-      </p>
+        <!-- Armado de las reseñas -->
+
+  <br>
+  <br>
+    <a class="uk-button uk-button-default" href="#modal-center2" uk-toggle>Ver Reseñas</a>
+        
+        <!-- Insertar Reseñas -->
+    <a class="uk-button uk-button-default" href="#modal-center3" uk-toggle>Agregar Reseña</a>
+
+      <!-- Diseños Armado -->
+
+
+    <div id="modal-center2" class="uk-flex-top" uk-modal>
+      <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical" id="modal-reco" >
+        <div "uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider class="img-reco">
+  
+      <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m">
+          <!-- // Aca codigo de reseñas con el for -->
+      </ul>
+      <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+     <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+  
+  </div>
+          <button class="uk-modal-close-default" type="button" uk-close ></button>
+  
+      </div>
+  </div>
+
+      <!-- Diseños Insert -->
+
+      <div id="modal-center3" class="uk-flex-top" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical"  >
+          <div "uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider class="img-reco">
+    
+        <ul class="uk-slider-items ">
+            <!-- -------- // Aca codigo de formulario con el for -------- -->
+
+            <form action="/series/verificar" method="POST">
+              <div>
+                  <label for="" class="no_hover">Email del usuario:</label>
+                  <br>
+                  <input type="email" name="nombre_usuario" value="">
+              </div>
+              <div>
+                  <label for="" class="no_hover">Contraseña:</label>
+                  <br>
+                  <input type="password" name="contraseña" value="">
+              </div>
+              <div>
+                  <label for="" class="no_hover">Comentario:</label>
+                  <br>
+                  <textarea rows="10" cols="40" name="texto_reseña">Write something here</textarea>
+              </div>
+              <div>
+                  <label for="" class="no_hover">Score:</label>
+                  
+
+                  
+              </div>
+              <button type="submit" class="ingreso">ENVIAR</button>
+              
+              </form>
+
+            <!-- -------- // Fin codigo de formulario con el for -------- -->
+        </ul>
+        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+       <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+    
+    </div>
+            <button class="uk-modal-close-default" type="button" uk-close id="botoncerrar"></button>
+    
+        </div>
+    </div>
+  
+ 
+
+
+<!-- ----------------------------------------------------------------------------------------------------- FIN PROGRAMACION II -->
+
+
+
+    </p>
 
 <div id="modal-center" class="uk-flex-top" uk-modal>
     <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical" id="modal-reco" >

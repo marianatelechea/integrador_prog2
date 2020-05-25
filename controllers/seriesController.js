@@ -1,29 +1,40 @@
 const db = require('../database/models');
 const OP = db.Sequelize.Op;
 
+// LOGIN ------------------------------------
+let moduloLogin = require('../modulo-login'); 
+
 // ENCRIPTACIÓN DE PASS ----------------------------------------
 
 const bcrypt = require('bcryptjs');
 let passEncriptada = bcrypt.hashSync('root', 10);    
 
-    // ----------------------------------------- FIN DE ENCRIPTACIÓN
+// ----------------------------------------- FIN DE ENCRIPTACIÓN
 
 module.exports = {
 
     index:(req, res) => { return res.render('Carátula');},
 
-    ingreso:(req, res) => { 
-        db.Usuario.findAll()
-            .then(usuarios => {
-                return res.render ("ingreso", {usuarios:usuarios});
-            })
-            .catch ((error) =>{
-            return res.send (error);
-            })  
+
+// INICIO REGISTRO --------------------------------------------
+    
+    ingreso:(req, res) => {return res.render('ingreso');},
+
+    /* Ruta de verficiacion de Usuario */
+
+    verificar: (req, res) => {
+        moduloLogin.chequearUsuario(emailAValidar)
+        .then( resultado => {
+            
+        res.send(resultado)
+        })
+
     },
 
+// ----------------------------------------------- FIN REGISTRO
 
-    // INICIO REGISTRO --------------------------------------------
+
+// INICIO REGISTRO --------------------------------------------
 
     registro:(req, res) => { db.Usuario.findAll()
         .then(usuarios => {
@@ -54,7 +65,7 @@ module.exports = {
             })
     }, 
 
-    // ----------------------------------------------- FIN REGISTRO
+// ----------------------------------------------- FIN REGISTRO
 
 
     pagina1: (req, res) => {return res.render('inicio'); },
@@ -71,7 +82,7 @@ module.exports = {
 
     pagina7:(req, res) => {  return res.render('seriesFav');},
 
-    pagina8:(req, res) => {  return res.render('reseñas');},
+    pagina8:(req, res) => {  return res.render('resenas');},
 
     guardar:(req,res) => {
         return res.send(req.body);

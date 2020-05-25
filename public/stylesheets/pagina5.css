@@ -73,7 +73,7 @@ form input.boton {
 
 .li-menu {
   list-style-type: none;
-  font-size: 31px;
+  font-size: 26px;
   font-family: PT Sans Narrow;
 }
 
@@ -504,3 +504,69 @@ border: solid 10px #F7C004;
 }
 
 }
+
+
+
+/* PROGRAMACION II ----------------------------------------------------------------------- */
+
+#modal-center3 div.img-reco {
+  display: flex;
+  justify-content: center;
+}
+
+#modal-center3 div.img-reco form {
+  text-align: center;
+  font-size: small;
+}
+
+label.no_hover:hover{
+  font-size: 1.5em;
+  color: none;
+  color: white;
+  
+}
+
+label.no_hover{
+color: white;
+font-size: 1.5em;
+
+}
+
+#modal-center3 div.img-reco form div {
+  margin: 7%;
+}
+
+#modal-center3 div.img-reco form div input{
+  background-color: rgba(252,156,66,0.45);
+  width: 100%;
+  padding: 2%;
+  color: white;
+  font-family: PT Sans Narrow;
+}
+
+#modal-center3 div.img-reco form div textarea{
+  background-color: rgba(252,156,66,0.45);
+  width: 100%;
+  padding: 2%;
+  color: white;
+  font-family: PT Sans Narrow;
+}
+
+
+button {
+  width: 64%;
+}
+
+  #modal-center3 div.img-reco ul {
+    width: 100%;
+    justify-content: center;
+    font-size: 1.5em;
+}
+
+
+#botoncerrar{
+display: flex;
+justify-content: flex-end;
+}
+  
+

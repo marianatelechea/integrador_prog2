@@ -39,9 +39,9 @@ module.exports = function (sequelize, dataTypes) {
   // En este punto, lo que buscamos hacer es la relación entre las tablas
   Resena.associate = function(models) {
     Resena.belongsTo(models.Usuario, { // .Usuario: Es el nombre del alias del modelo Usuario.js
-        as: "usuarios", // 
-        foreignKey: "id_usuario",
-        otherKey: "id_serie", 
+        as: 'usuario',  
+        foreignKey: 'id_usuario',
+        otherKey: 'id_serie', 
     });
 }
 
