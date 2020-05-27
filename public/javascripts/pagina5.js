@@ -107,7 +107,7 @@ fetch("https://api.themoviedb.org/3/tv/" + idTrailer + "/videos?api_key=65eadee9
 
                 <li>
                   <a href='/series/detalle?id=${series.results[i].id}'>
-                    <img src='https://image.tmdb.org/t/p/original/${series.results[i].backdrop_path}' onError="this.src='Error2.png'">
+                    <img src='https://image.tmdb.org/t/p/original/${series.results[i].backdrop_path}' onError="this.src='/images/PAGINA5/Error2.png'">
                   </a>
                 </li>
 

@@ -23,17 +23,33 @@ module.exports = {
     /* Ruta de verficiacion de Usuario */
 
     verificar: (req, res) => { 
-        moduloLogin.validar(req.body.email, req.body.contraseña)
+        moduloLogin.chequearUsuario(req.body.email)
             .then(resultado => {
-                if (req.body.email  == false ){
-                        res.send(resultado)  
+                if (resultado  == false ){
+                    console.log("El E-mail NO esta en la base de datos");
+                } else{
+                    console.log("El E-mail esta en la base de datos");
+                    moduloLogin.validar(req.body.email, bcrypt.hashSync(req.body.contraseña))
+                    .then(validContra => {
+                        console.log(validContra);
+                  
+                        
+                       if (bcrypt.compareSync(req.body.contraseña, bcrypt.hashSync(req.body.contraseña))) {
+                           //console.log(bcrypt.compareSync(req.body.contraseña, resultado.passEncriptada));
+                           
+                            console.log("JOYA");
+                            res.send("true")                    
+                        } else {  
+                            console.log("Te equivocaste BRO"); 
+                            res.send("false")  
+                            
+                        }
+                    })
                 }
-                else if (req.body.contraseña == false){
-                        res.send(resultado)
-                } else {
-                    res.redirect("/series/inicio")
-                }
-        })
+            })
+            .catch(error => {
+                return res.send (error);
+            })
     },
     
 // ----------------------------------------------- FIN INGRESO
@@ -52,7 +68,7 @@ module.exports = {
 
     /* Ruta de almacenamiento de datos de los Usuarios */
 
-    // -------- PROBANDO EL TEMA DE RENAS -------------
+    // -------- PROBANDO EL TEMA DE REGISTRO -------------
     guardado:(req, res) => {
         db.Usuario
             .create({

@@ -94,7 +94,7 @@
      <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
   
   </div>
-          <button class="uk-modal-close-default" type="button" uk-close ></button>
+          <button class="uk-modal-close-default" type="button" uk-close id="close"></button>
   
       </div>
   </div>
@@ -108,26 +108,29 @@
         <ul class="uk-slider-items ">
             <!-- -------- // Aca codigo de formulario con el for -------- -->
 
-            <form action="/series/verificar" method="POST">
+            <form action="/series/guardado_resena" method="POST">
               <div>
-                  <label for="" class="no_hover">Email del usuario:</label>
+                  <label for="" class="no_hover" >Email del usuario:</label>
                   <br>
-                  <input type="email" name="nombre_usuario" value="">
+                  <input type="email" name="nombre_usuario" required>
               </div>
               <div>
                   <label for="" class="no_hover">Contraseña:</label>
                   <br>
-                  <input type="password" name="contraseña" value="">
+                  <input type="password" name="contraseña" required>
               </div>
               <div>
                   <label for="" class="no_hover">Comentario:</label>
                   <br>
-                  <textarea rows="10" cols="40" name="texto_reseña">Write something here</textarea>
+                  <textarea rows="10" cols="40" name="texto_reseña" value="Write something here" required></textarea>
               </div>
               <div>
                   <label for="" class="no_hover">Score:</label>
-                  
-
+                    <!---<fieldset class="uk-fieldset">-->
+                  <div class="uk-margin">
+                            <input class="uk-range" type="range" value="2" min="0" max="10" step="1" name="puntaje_serie">
+                        </div>
+                    <!--</fieldset>-->
                   
               </div>
               <button type="submit" class="ingreso">ENVIAR</button>
@@ -165,7 +168,7 @@
    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
 
 </div>
-        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <button class="uk-modal-close-default" type="button" uk-close id="close"></button>
 
     </div>
 </div>

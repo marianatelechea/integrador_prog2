@@ -338,7 +338,11 @@ align-items: center;
   background: #252827;;
 }
 
+#close{
+  display: flex;
+  justify-content: flex-end;
 
+}
 /* -------- FOOTER --------- */
 
 
