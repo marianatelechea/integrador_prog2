@@ -4,6 +4,8 @@ var router = express.Router();
 /* Vamos a requerir el controlador */
 
 const controllers = require('../controllers/seriesController.js');
+const controResena = require('../controllers/resenasController.js');
+const controBucador = require('../controllers/buscadorController.js');
 
 // PAGINA 0
 
@@ -66,13 +68,15 @@ router.get('/favoritos', controllers.pagina7);
 
 router.get('/resenas', controllers.pagina8);
 
-//router.post('/guardado_resena', controllers.guarda_resena);
+router.post('/guardado_resena', controResena.guarda_resena);
 
 // -------------------------------------------------------------------------------------------------
 
 // PAGINA 9 (busc-usuarios)
 
 router.get('/busc-usuarios', controllers.pagina9);
+
+router.post('/buscUser', controBucador.busqueda);
 
 // PAGINA 10 (detalle-usuario)
 

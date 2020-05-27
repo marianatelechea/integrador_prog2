@@ -16,43 +16,73 @@ module.exports = {
     index:(req, res) => { return res.render('Carátula');},
 
 
-// INICIO INGRESO --------------------------------------------
+// INICIO INGRESO -------------------------------------------------------------------------------------------------------------------------------------
     
     ingreso:(req, res) => {return res.render('ingreso');},
 
     /* Ruta de verficiacion de Usuario */
 
     verificar: (req, res) => { 
-        moduloLogin.validar(req.body.email, req.body.contraseña)
+        moduloLogin.chequearUsuario(req.body.email)
             .then(resultado => {
-                if (req.body.email  == false ){
-                        res.send(resultado)  
-                }
-                else if (req.body.contraseña == false){
-                        res.send(resultado)
-                } else {
-                    res.redirect("/series/inicio")
-                }
-        })
+                // COMENTARIO DE JAVI
+                /*
+                    EL MÉTODO validar TENÍA UN PEQUEÑO ERROR, AHÍ LO CORREGÍ, Y AHORA PARA VALIDAR SOLO NECESITÁS PASAR EL EMAIL DEL USUARIO QUE SE QUIERE LOGUEAR
+
+                    WARNING: tené en cuenta de hacer pruebas con usuarios nuevos, cuya contraseña en la DB sea algo así:
+                    $2a$10$BkDYfk22eEFrNZk5IwLt4.muS4vhuI4vGtGS.9sf8jSr8EjV34ltm
+                */ 
+                moduloLogin.validar(req.body.email)
+                .then(resultado => {
+                        console.log(resultado); // AQUÍ TENÉS AL USUARIO QUE ENCONTRASTE EN LA DB
+                        if (resultado  == false ){
+                            console.log("El E-mail NO esta en la base de datos");
+                        } else { 
+                            // COMENTARIO DE JAVI - AQUÍ TODO QUEDA COMO LO TENÍAS
+                            /*
+                                EL 1ER PARÁMETRO DE compareSync SERÁ LA CONTRASEÑA QUE EL USUARIO ESCRIBE AL MOMENTO DE LOGUEARSE
+                                EL 2DO PARÁMETRO SERÁ LA constraseña DEL USUARIO QUE ESTÁ EN LA DB
+                            */ 
+                            if (bcrypt.compareSync(req.body.contraseña, resultado.contraseña)) {
+                           //
+                           //console.log(bcrypt.compareSync(req.body.contraseña, resultado.passEncriptada));
+                           
+                                console.log("JOYA");
+                                res.render("inicio")                    
+                            } else {  
+                                console.log("Te equivocaste BRO"); 
+                                res.send("Falló la validación")  
+                            
+                        }
+                        }
+                    })
+                
+            })
+            .catch(error => {
+                return res.send (error);
+            })
     },
+
     
-// ----------------------------------------------- FIN INGRESO
+// ---------------------------------------------------------------------------------------------------------------------------------------- FIN INGRESO
 
 
-// INICIO REGISTRO --------------------------------------------
+// INICIO REGISTRO ------------------------------------------------------------------------------------------------------------------------------------
 
-    registro:(req, res) => { db.Usuario.findAll()
-        .then(usuarios => {
-            return res.render ("registro");
-        })
-        .catch (error =>{
-        return res.send (error);
-        })   
-    },
+    //registro:(req, res) => { db.Usuario.findAll()
+    //    .then(usuarios => {
+    //        return res.render ("registro");
+    //    })
+    //    .catch (error =>{
+    //    return res.send (error);
+    //    })   
+   // },
+
+   registro:(req, res) => {return res.render('registro');},
 
     /* Ruta de almacenamiento de datos de los Usuarios */
 
-    // -------- PROBANDO EL TEMA DE RENAS -------------
+    // -------- PROBANDO EL TEMA DE REGISTRO -------------
     guardado:(req, res) => {
         db.Usuario
             .create({
@@ -60,7 +90,7 @@ module.exports = {
                 apellido_usuario: req.body.apellido_usuario,
                 email: req.body.email,
             //  id_usuario: req.body.Usuario,
-                contraseña: req.body.contraseña && passEncriptada,
+                contraseña: bcrypt.hashSync(req.body.contraseña),
                 fecha_nacimiento: req.body.fecha_nacimiento,
             })
             .then(usuarioGuardado => {
@@ -73,7 +103,7 @@ module.exports = {
     // -------------------------------------------------
     
 
-// ----------------------------------------------- FIN REGISTRO
+// ---------------------------------------------------------------------------------------------------------------------------------- FIN REGISTRO
 
 
     pagina1: (req, res) => {return res.render('inicio'); },
