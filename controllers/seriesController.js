@@ -25,32 +25,33 @@ module.exports = {
     verificar: (req, res) => { 
         moduloLogin.chequearUsuario(req.body.email)
             .then(resultado => {
-                if (resultado  == false ){
-                    console.log("El E-mail NO esta en la base de datos");
-                } else{
-                    console.log("El E-mail esta en la base de datos");
                     moduloLogin.validar(req.body.email, bcrypt.hashSync(req.body.contraseña))
-                    .then(validContra => {
-                        console.log(validContra);
-                  
-                        
-                       if (bcrypt.compareSync(req.body.contraseña, bcrypt.hashSync(req.body.contraseña))) {
+                    .then(resultado => {
+                        console.log(resultado);
+                        if (resultado  == false ){
+                            console.log("El E-mail NO esta en la base de datos");
+                        } else{
+                            let tempPassword = bcrypt.hashSync(req.body.contraseña)
+                            if (bcrypt.compareSync(tempPassword, resultado.contraseña)) {
+                           //
                            //console.log(bcrypt.compareSync(req.body.contraseña, resultado.passEncriptada));
                            
-                            console.log("JOYA");
-                            res.send("true")                    
-                        } else {  
-                            console.log("Te equivocaste BRO"); 
-                            res.send("false")  
+                                console.log("JOYA");
+                                res.send("true")                    
+                            } else {  
+                                console.log("Te equivocaste BRO"); 
+                                res.send("false")  
                             
                         }
+                        }
                     })
-                }
+                
             })
             .catch(error => {
                 return res.send (error);
             })
     },
+
     
 // ----------------------------------------------- FIN INGRESO
 
@@ -76,7 +77,7 @@ module.exports = {
                 apellido_usuario: req.body.apellido_usuario,
                 email: req.body.email,
             //  id_usuario: req.body.Usuario,
-                contraseña: req.body.contraseña && passEncriptada,
+                contraseña: bcrypt.hashSync(req.body.contraseña),
                 fecha_nacimiento: req.body.fecha_nacimiento,
             })
             .then(usuarioGuardado => {
