@@ -16,7 +16,7 @@ module.exports = {
     index:(req, res) => { return res.render('Carátula');},
 
 
-// INICIO INGRESO --------------------------------------------
+// INICIO INGRESO -------------------------------------------------------------------------------------------------------------------------------------
     
     ingreso:(req, res) => {return res.render('ingreso');},
 
@@ -48,7 +48,7 @@ module.exports = {
                            //console.log(bcrypt.compareSync(req.body.contraseña, resultado.passEncriptada));
                            
                                 console.log("JOYA");
-                                res.send("Validado")                    
+                                res.render("inicio")                    
                             } else {  
                                 console.log("Te equivocaste BRO"); 
                                 res.send("Falló la validación")  
@@ -64,19 +64,21 @@ module.exports = {
     },
 
     
-// ----------------------------------------------- FIN INGRESO
+// ---------------------------------------------------------------------------------------------------------------------------------------- FIN INGRESO
 
 
-// INICIO REGISTRO --------------------------------------------
+// INICIO REGISTRO ------------------------------------------------------------------------------------------------------------------------------------
 
-    registro:(req, res) => { db.Usuario.findAll()
-        .then(usuarios => {
-            return res.render ("registro");
-        })
-        .catch (error =>{
-        return res.send (error);
-        })   
-    },
+    //registro:(req, res) => { db.Usuario.findAll()
+    //    .then(usuarios => {
+    //        return res.render ("registro");
+    //    })
+    //    .catch (error =>{
+    //    return res.send (error);
+    //    })   
+   // },
+
+   registro:(req, res) => {return res.render('registro');},
 
     /* Ruta de almacenamiento de datos de los Usuarios */
 
@@ -101,7 +103,7 @@ module.exports = {
     // -------------------------------------------------
     
 
-// ----------------------------------------------- FIN REGISTRO
+// ---------------------------------------------------------------------------------------------------------------------------------- FIN REGISTRO
 
 
     pagina1: (req, res) => {return res.render('inicio'); },
