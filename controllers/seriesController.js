@@ -25,22 +25,33 @@ module.exports = {
     verificar: (req, res) => { 
         moduloLogin.chequearUsuario(req.body.email)
             .then(resultado => {
-                    moduloLogin.validar(req.body.email, bcrypt.hashSync(req.body.contraseña))
-                    .then(resultado => {
-                        console.log(resultado);
+                // COMENTARIO DE JAVI
+                /*
+                    EL MÉTODO validar TENÍA UN PEQUEÑO ERROR, AHÍ LO CORREGÍ, Y AHORA PARA VALIDAR SOLO NECESITÁS PASAR EL EMAIL DEL USUARIO QUE SE QUIERE LOGUEAR
+
+                    WARNING: tené en cuenta de hacer pruebas con usuarios nuevos, cuya contraseña en la DB sea algo así:
+                    $2a$10$BkDYfk22eEFrNZk5IwLt4.muS4vhuI4vGtGS.9sf8jSr8EjV34ltm
+                */ 
+                moduloLogin.validar(req.body.email)
+                .then(resultado => {
+                        console.log(resultado); // AQUÍ TENÉS AL USUARIO QUE ENCONTRASTE EN LA DB
                         if (resultado  == false ){
                             console.log("El E-mail NO esta en la base de datos");
-                        } else{
-                            let tempPassword = bcrypt.hashSync(req.body.contraseña)
-                            if (bcrypt.compareSync(tempPassword, resultado.contraseña)) {
+                        } else { 
+                            // COMENTARIO DE JAVI - AQUÍ TODO QUEDA COMO LO TENÍAS
+                            /*
+                                EL 1ER PARÁMETRO DE compareSync SERÁ LA CONTRASEÑA QUE EL USUARIO ESCRIBE AL MOMENTO DE LOGUEARSE
+                                EL 2DO PARÁMETRO SERÁ LA constraseña DEL USUARIO QUE ESTÁ EN LA DB
+                            */ 
+                            if (bcrypt.compareSync(req.body.contraseña, resultado.contraseña)) {
                            //
                            //console.log(bcrypt.compareSync(req.body.contraseña, resultado.passEncriptada));
                            
                                 console.log("JOYA");
-                                res.send("true")                    
+                                res.send("Validado")                    
                             } else {  
                                 console.log("Te equivocaste BRO"); 
-                                res.send("false")  
+                                res.send("Falló la validación")  
                             
                         }
                         }
