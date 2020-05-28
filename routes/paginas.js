@@ -54,7 +54,8 @@ router.get('/buscador', controllers.pagina4);
 
 // PAGINA 5 
 
-router.get('/detalle', controllers.pagina5);
+router.get('/detalle', controResena.id_serie);
+
 
 // PAGINA 6 
 
@@ -70,6 +71,8 @@ router.get('/resenas', controllers.pagina8);
 
 router.post('/guardado_resena', controResena.guarda_resena);
 
+//router.get('/detalle/:id', controResena.info_serie);
+
 // -------------------------------------------------------------------------------------------------
 
 // PAGINA 9 (busc-usuarios)
@@ -80,6 +83,6 @@ router.post('/buscUser', controBucador.busqueda);
 
 // PAGINA 10 (detalle-usuario)
 
-router.get('/detalle-usuario', controllers.pagina10);
+router.get('/detalle-usuario/', controllers.pagina10);
 
 module.exports = router;
