@@ -35,8 +35,8 @@ module.exports = function (sequelize, dataTypes) {
 
 // En este punto, lo que buscamos hacer es la relación entre las tablas
     Usuario.associate = function(models) {
-        Usuario.hasMany(models.Reseña, { // .Reseña: Es el nombre del alias del modelo Resena.js
-            as: "reseñas", // Del Usuario voy a pedir las muchas reseñas que tiene
+        Usuario.hasMany(models.Resena, { // .Resena: Es el nombre del alias del modelo Resena.js
+            as: "resenas", // Del Usuario voy a pedir las muchas reseñas que tiene
             foreignKey: "id_usuario"
         });
     }

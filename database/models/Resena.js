@@ -1,6 +1,6 @@
 module.exports = function (sequelize, dataTypes) {
 
-  let alias = "Reseña";
+  let alias = "Resena";
 
   let cols = {
       id_reseña: {
@@ -14,7 +14,7 @@ module.exports = function (sequelize, dataTypes) {
       id_usuario: {
         type: dataTypes.INTEGER
       },
-      texto_reseña:{
+      texto_resena:{
         type: dataTypes.STRING,
       }, 
       fecha_creacion: {
@@ -30,7 +30,7 @@ module.exports = function (sequelize, dataTypes) {
   }
 
   let config = {
-      tableName: "reseñas",
+      tableName: "resenas",
       timestamps: false
   }
 
