@@ -20,7 +20,7 @@ module.exports = {
                 .then(resultado => {
                     moduloLogin.validar(req.body.email)
                     .then(resultado=>{
-                            if(resultado  == false ){
+                            if(resultado  == null ){
                                 console.log("El E-mail NO esta en la base de datos");
                             } else{
                                 if (bcrypt.compareSync(req.body.contraseña, resultado.contraseña)) {
