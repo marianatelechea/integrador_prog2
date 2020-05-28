@@ -25,6 +25,8 @@ module.exports = {
                             } else{
                                 if (bcrypt.compareSync(req.body.contraseña, resultado.contraseña)) {
                                     db.Resena.create({
+                                        id_usuario:resultado.id_usuario,
+                                        id_serie: "/series/detalle?id=" + resultado.id,
                                         texto_resena: req.body.texto_resena,
                                         puntaje_serie: req.body.puntaje_serie
                                     })
@@ -42,6 +44,32 @@ module.exports = {
                     })             
                 })
 
+    },
+
+    ver_resenas:(req,res) =>{ // Ver la reseña de todos los usuarios
+        db.Resena
+            .findAll()
+            .then(resenas => {
+            // video JAVI
+            // return res.render('moviesIndex', {
+              // listaPeliculas: movies  
+            //})
+                
+            })
+            .catch(error => {
+                return res.send (error);
+            })
+    },
+
+    mis_resenas: (req, res) => {
+        db.Resena
+            .findByPk()
+            .then(resenas => {
+                
+            })
+            .catch(error => {
+                return res.send (error);
+            })
     }
 
 };
