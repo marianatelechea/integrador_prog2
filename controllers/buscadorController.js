@@ -17,22 +17,27 @@ module.exports = {
     // INICIO BUSCADOR DE USUARIOS ----------------------------------------
 
     // ... Comment -->  index: function(req, res) {res.render('usuarios')},
+
+ 
     busqueda: function(req, res) {
-        db.Usuario
-            .findAll({
-                where:{email:{[OP.like]: '%' + req.query.email  + '%'}}
+        let filter = {};
+        let q = req.query.email;
+
+        if (q){
+            filter = {
+                where: [ {
+                    email: {[OP.like]: "%" + req.query.email +  "%"}
+                } ]
+            };
+        }
+
+        db.Usuario.findAll(filter).then((usuarios) => {
+            //res.json(usuarios)
+            res.render('usuarios', {
+                usuarios:usuarios
             })
-            .then(
-                function(userBuscado){
-                    if (userBuscado.length == 0) {
-                        res.render('usuarios',{
-                            userBuscado: "No exite usuario para esta busqueda"
-                        })
-                    }
-                }
-            )
-    }
-
-
+        })
+    } 
+            
 // --------------------------------------------------------------------
 };

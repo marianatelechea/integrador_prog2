@@ -61,17 +61,27 @@
           <div class="titulo">
             <p>BUSCADOR DE USUARIOS</p>
           </div>
-          <form class="busc" action="/series/busc-usuario" method="GET">
+          <form class="busc" action="/series/buscUser/" method="GET">
               <label for="">EMAIL / NOMBRE DE USUARIO</label>
               <br>
-              <input class = "users" type="text" name="nombre_usuario" value="">
-              <input type=image src="/images/PAGINA6/usuario.png" width="17" name="" value="Buscar" class="busc-user">
+              <input class = "users" type="email" name="email" value="" required>
+              <input type=image src="/images/PAGINA6/usuario.png" width="17" name="" value="" class="busc-user">
               
           </form>
 
         </div>
 
     </section>
+
+    <div>
+      <% for(let i = 0; i < usuarios.length; i++) { %>
+        <li>
+          <a href="/series/<%=usuarios[i].id_usuario%>"><%=usuarios[i].nombre_usuario%> <%=usuarios[i].apellido_usuario%>: <%=usuarios[i].email%></a>
+        </li>
+    <% } %>
+    </div>
+
+ 
 
 <!----------------------------------------------------------------------------------------------->
 
