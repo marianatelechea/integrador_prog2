@@ -41,7 +41,7 @@
           <li class="li-menu"><a class="li-black" href="/series/busc-avanzado">Buscador</a></li>
             <li class="li-menu"><a class="li-black" href="/series/favoritos">Favoritos</a></li>
             <li class="li-menu"><a class="li-black" href="/series/resenas">Mis Reseñas</a></li>
-            <li class="li-menu"><a class="li-black" href="/series/usuarios">Usuarios</a></li>
+            <li class="li-menu"><a class="li-black" href="/series/buscUser">Usuarios</a></li>
         </ul>
       </nav>
       <div class="elbuscador">
@@ -64,7 +64,7 @@
           <form class="busc" action="/series/buscUser/" method="GET">
               <label for="">EMAIL / NOMBRE DE USUARIO</label>
               <br>
-              <input class = "users" type="email" name="email" value="" required>
+              <input class = "users" type="text" name="email" value="" required>
               <input type=image src="/images/PAGINA6/usuario.png" width="17" name="" value="" class="busc-user">
               
           </form>
@@ -73,22 +73,22 @@
 
     </section>
 
-    <div>
-      <% for(let i = 0; i < usuarios.length; i++) { %>
-        <li>
-          <a href="/series/<%=usuarios[i].id_usuario%>"><%=usuarios[i].nombre_usuario%> <%=usuarios[i].apellido_usuario%>: <%=usuarios[i].email%></a>
-        </li>
-    <% } %>
-    </div>
+    
+    <section class="usuarios">
 
- 
-
-<!----------------------------------------------------------------------------------------------->
-
-    <section class="resultado">
+        <% for (let i = 0; i < usuarios.length; i++) { %>
+            <li>
+              <a href="/series/<%=usuarios[i].id_usuario%>"> 
+                <%=usuarios[i].nombre_usuario%> <%=usuarios[i].apellido_usuario%>: <%=usuarios[i].email%> 
+              </a>
+            </li>
+      <% } %>
 
 
     </section>
+
+    <!----------------------------------------------------------------------------------------------->
+
 
 
 

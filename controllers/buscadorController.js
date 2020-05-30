@@ -22,6 +22,7 @@ module.exports = {
     busqueda: function(req, res) {
         let filter = {};
         let q = req.query.email;
+        let b = req.body.nombre_usuario;
 
         if (q){
             filter = {
@@ -29,15 +30,27 @@ module.exports = {
                     email: {[OP.like]: "%" + req.query.email +  "%"}
                 } ]
             };
+        } else if(b){
+            filter = {
+                where: [ {
+                    email: {[OP.like]: "%" + req.body.nombre_usuario +  "%"}
+                } ]
+            };
         }
 
         db.Usuario.findAll(filter).then((usuarios) => {
-            //res.json(usuarios)
-            res.render('usuarios', {
-                usuarios:usuarios
-            })
+            console.log(usuarios)
+            if(usuarios != "") {
+                //res.json(usuarios)
+                res.render('usuarios', {
+                    usuarios: usuarios
+                })
+            } else {
+                //res.send("No encuentro")
+                res.send('Not found')
+            }
         })
-    } 
+    },
             
 // --------------------------------------------------------------------
 };
