@@ -87,7 +87,7 @@ router.post('/guardado_resena', controResena.guarda_resena);
 
 // router.get('/usuarios', controUser.listado);
 
-// router.get('/detalle', controUser.detalle);
+router.get('/detalle/:id_usuario', controUser.detalle);
 
 //router.get('/detalle/:id', controResena.info_serie);
 
