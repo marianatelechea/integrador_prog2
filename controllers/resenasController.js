@@ -61,32 +61,29 @@ module.exports = {
 
     },
 
-    ver_resenas:(req,res) =>{ // Ver la reseña de todos los usuarios
-        db.Resena
-            .findAll()
+    //////////////////////////////   LISTADO DE RESEÑAS //////////////////////////////
+
+    listado:function(req, res){
+        db.Resena.findAll({ include: [{association: "usuario"}]})
             .then(resenas => {
-            // video JAVI
-            // return res.render('moviesIndex', {
-              // listaPeliculas: movies  
-            //})
-                
+                res.render("descripcion", {resenas:resenas})
             })
             .catch(error => {
                 return res.send (error);
             })
     },
 
-    mis_resenas: (req, res) => {
-        db.Resena
-            .findByPk()
-            .then(resenas => {
-                
-            })
-            .catch(error => {
-                return res.send (error);
-            })
+    detalle: function(req, res){
+        db.Resena.findByPk(req.params.id,{
+            include: [{association: "usuario"}]
+        })
+        .then(unaResena => {
+            res.render("resenas", {unaResena:unaResena})
+        })
+        .catch(error => {
+            return res.send (error);
+        })
     }
-
 };
 
 
