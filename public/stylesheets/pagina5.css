@@ -573,4 +573,50 @@ display: flex;
 justify-content: flex-end;
 }
   
+#detalle-usuario{
+display: flex;
+flex-wrap: wrap;
+flex-direction: column;
+align-items: center;
+background-color:wheat;
+}
 
+#detalle-usuario img{
+  width: 15%;
+  margin-top: 5%;
+}
+
+#detalle-usuario p{
+background-color: black;
+width: 53%;
+padding: 1%;
+color: white;
+font-family: PT Sans Narrow;
+text-align: center;
+font-size: 1.5em;
+}
+
+#detalle-usuario li{
+  background-color: black;
+  width: 100%;
+  color: white;
+  font-family: PT Sans Narrow;
+  text-align: center;
+  font-size: 1.5em;
+  list-style-type: none;
+  margin: 2%;
+  }
+
+  #detalle-usuario ul{
+    width: 100%;
+    padding: 0;
+    margin-top: 0%;
+    padding-left: 0;
+    margin-left: 0;
+    display: flex;
+    flex-wrap: inherit;
+} 
+
+#detalle-usuario h1{
+  font-family: PT Sans Narrow;
+}

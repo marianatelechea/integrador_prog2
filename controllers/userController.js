@@ -13,18 +13,8 @@ let passEncriptada = bcrypt.hashSync('root', 10);
 
 module.exports = {
 
-    listado:function(req, res){
-        db.Usuario.findAll()
-            .then(usuarios => {
-                res.render("usuarios", {usuarios:usuarios})
-            })
-            .catch(error => {
-                return res.send (error);
-            })
-    },
-
     detalle: function(req, res){
-        db.Usuario.findByPk(req.params.id,{
+        db.Usuario.findByPk(req.params.id_usuario,{
             include: [{association: "resenas"}]
         })
         .then(unUser => {

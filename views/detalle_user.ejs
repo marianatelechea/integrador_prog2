@@ -51,25 +51,28 @@
     </header>
 
     <section id="detalle-usuario">
+       <img src="/images/PAGINA6/usuario.png" alt="">
 
-        <h1>
-            Nombre / Apellido de Usuario
-           <!-- <%=usuarioGuardado.nombre_usuario + " " + usuarioGuardado.apellido_usuario%> -->
-        </h1>
-        <p>
-            Email del Usuario: <!-- <%=usuarioGuardado.email%> -->
-        </p>
-        <p>
-            Contraseña encriptada: <!-- <%=usuarioGuardado.contraseña%> -->
-        </p>
-
-        <p>
-            Fecha de Nacimiento: <!-- <%=usuarioGuardado.fecha_nacimiento%> --> 
-        </p>
-        <p>
-            Reseñas del Usuario: 
-        </p>
-
+        <h1>Nombre / Apellido del Usuario:</h1>
+        <p><%=unUser.nombre_usuario%>  <%=unUser.apellido_usuario%></p>
+        <br>
+        <h1>Email del Usuario: </h1>
+        <p><%=unUser.email%></p>
+        <br>
+        <h1>Contraseña encriptada: </h1>
+        <p><%=unUser.contraseña%></p>
+        <br>
+        <h1>Fecha de Nacimiento:</h1>
+        <p><%=unUser.fecha_nacimiento%></p>
+        <br>
+        <h1>Reseñas del Usuario: </h1>
+        <ul>
+          <% for (let i = 0; i < unUser.resenas.length; i++) { %>
+              <li>
+                <%=unUser.resenas[i].texto_resena%> 
+              </li>
+          <% } %>
+      </ul>
     </section>
 
 
