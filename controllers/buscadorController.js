@@ -17,22 +17,40 @@ module.exports = {
     // INICIO BUSCADOR DE USUARIOS ----------------------------------------
 
     // ... Comment -->  index: function(req, res) {res.render('usuarios')},
+
+ 
     busqueda: function(req, res) {
-        db.Usuario
-            .findAll({
-                where:{email:{[OP.like]: '%' + req.query.email  + '%'}}
-            })
-            .then(
-                function(userBuscado){
-                    if (userBuscado.length == 0) {
-                        res.render('usuarios',{
-                            userBuscado: "No exite usuario para esta busqueda"
-                        })
-                    }
-                }
-            )
-    }
+        let filter = {};
+        let q = req.query.email;
+        let b = req.body.nombre_usuario;
 
+        if (q){
+            filter = {
+                where: [ {
+                    email: {[OP.like]: "%" + req.query.email +  "%"}
+                } ]
+            };
+        } else if(b){
+            filter = {
+                where: [ {
+                    email: {[OP.like]: "%" + req.body.nombre_usuario +  "%"}
+                } ]
+            };
+        }
 
+        db.Usuario.findAll(filter).then((usuarios) => {
+            console.log(usuarios)
+            if(usuarios != "") {
+                //res.json(usuarios)
+                res.render('usuarios', {
+                    usuarios: usuarios
+                })
+            } else {
+                //res.send("No encuentro")
+                res.send('Not found')
+            }
+        })
+    },
+            
 // --------------------------------------------------------------------
 };

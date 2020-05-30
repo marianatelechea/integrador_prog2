@@ -482,3 +482,24 @@ div.busc-usuarios form input.users{
   height: 0%;
   padding-top: 0.5%;
 }
+
+
+section.usuarios{
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  padding: 23px;
+  background-color: darkgray;
+  width: 100%;
+  font-family: PT Sans Narrow;
+  list-style-type: none;
+  font-size: 1.6em;
+  }
+
+  section.usuarios li a{
+    color: white;
+  }
+

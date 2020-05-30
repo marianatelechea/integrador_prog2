@@ -6,7 +6,7 @@ var router = express.Router();
 const controllers = require('../controllers/seriesController.js');
 const controResena = require('../controllers/resenasController.js');
 const controBucador = require('../controllers/buscadorController.js');
-
+const controUser = require('../controllers/userController.js');
 // PAGINA 0
 
 router.get('/', controllers.index);
@@ -54,7 +54,14 @@ router.get('/buscador', controllers.pagina4);
 
 // PAGINA 5 
 
-router.get('/detalle', controllers.pagina5);
+router.get('/detalle', controResena.id_serie);
+
+
+//router.get("/listado", controResena.listado);
+
+//router.get("/usuario", controResena.usuario);
+
+
 
 // PAGINA 6 
 
@@ -68,7 +75,21 @@ router.get('/favoritos', controllers.pagina7);
 
 router.get('/resenas', controllers.pagina8);
 
-router.post('/guardado_resena', controResena.guarda_resena);
+router.post('/guardado_resena', controResena.guarda_resena); 
+
+
+
+/////////////////
+
+// router.get('/resenas', controResena.listado);
+
+// router.get('/detalle', controResena.detalle);
+
+// router.get('/usuarios', controUser.listado);
+
+// router.get('/detalle', controUser.detalle);
+
+//router.get('/detalle/:id', controResena.info_serie);
 
 // -------------------------------------------------------------------------------------------------
 
@@ -76,10 +97,10 @@ router.post('/guardado_resena', controResena.guarda_resena);
 
 router.get('/busc-usuarios', controllers.pagina9);
 
-router.post('/buscUser', controBucador.busqueda);
+router.get('/buscUser', controBucador.busqueda);
 
 // PAGINA 10 (detalle-usuario)
 
-router.get('/detalle-usuario', controllers.pagina10);
+router.get('/detalle-usuario/', controllers.pagina10);
 
 module.exports = router;

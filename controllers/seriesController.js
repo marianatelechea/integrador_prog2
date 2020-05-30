@@ -35,9 +35,10 @@ module.exports = {
                 moduloLogin.validar(req.body.email)
                 .then(resultado => {
                         console.log(resultado); // AQUÍ TENÉS AL USUARIO QUE ENCONTRASTE EN LA DB
-                        if (resultado  == false ){
+                        if (resultado  == null){
+                            res.send("El E-mail NO esta en la base de datos")
                             console.log("El E-mail NO esta en la base de datos");
-                        } else { 
+                        }else { 
                             // COMENTARIO DE JAVI - AQUÍ TODO QUEDA COMO LO TENÍAS
                             /*
                                 EL 1ER PARÁMETRO DE compareSync SERÁ LA CONTRASEÑA QUE EL USUARIO ESCRIBE AL MOMENTO DE LOGUEARSE
@@ -94,7 +95,8 @@ module.exports = {
                 fecha_nacimiento: req.body.fecha_nacimiento,
             })
             .then(usuarioGuardado => {
-                return res.send(usuarioGuardado);
+                //return res.send(usuarioGuardado);
+                return res.render('ingreso');
             })
             .catch(error => {
                 return res.send (error);
