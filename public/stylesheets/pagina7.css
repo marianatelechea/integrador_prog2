@@ -142,10 +142,11 @@ div.alert-light{
 /* BUSCADOR DE SERIES FAV */
 
 .series-favoritas form input{
-  width: 75%;
-  height: 4em;
+  width: 211%;
+  height: 2em;
   background: #ffffff4a;
   border-radius: 14px;
+  border-style: none;
 }
 
 .listado-favoritas h3 a{
@@ -387,11 +388,12 @@ align-items: center;
 }
 
 ul.resenas li{
-  width: 75%;
+  width: 40%;
   background: #ffffffc9;
   margin-bottom: 2%;
   list-style-type: none;
   color: black;
+  padding-top: 1.5%;
 }
 
 div.mis_resenas{
@@ -406,4 +408,20 @@ div.mis_resenas{
     color: white;
     font-family: 'PT Sans Narrow';
     border: dotted;
+}
+
+.series-favoritas div.edit_delete{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: 4%;
+  margin-left: -23px;
+}
+
+.series-favoritas div.edit_delete a{
+  width: 16%;
+    background: #ffffff4a;
+    border-radius: 14px;
+    color: black;
 }

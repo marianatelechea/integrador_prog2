@@ -40,7 +40,7 @@
         <li class="li-menu"><a class="li-black" href="/series/generos">Géneros</a></li>
           <li class="li-menu"><a class="li-black" href="/series/busc-avanzado">Buscador</a></li>
             <li class="li-menu"><a class="li-black" href="/series/favoritos">Favoritos</a></li>
-            <li class="li-menu"><a class="li-black" href="/series/login">Mis Reseñas</a></li>
+            <li class="li-menu"><a class="li-black" href="/series/resenas">Mis Reseñas</a></li>
             <li class="li-menu"><a class="li-black" href="/series/buscUser">Usuarios</a></li>
         </ul>
       </nav>
@@ -64,9 +64,20 @@
       <% for (let i = 0; i < unUser.resenas.length; i++) { %>
         <li>
           Id Serie: <%=unUser.resenas[i].id_serie%> <br><%=unUser.resenas[i].texto_resena%> <br>Score: <%=unUser.resenas[i].puntaje_serie%> 
+
+          <div class="edit_delete">
+            <a href="/series/resenas/editar/<%=unUser.resenas[i].id_resena%>">Editar</a>
+            <a href="/series/detalle?id=<%=unUser.resenas[i].id_serie%>"</a>Ver Serie</a>
+            <form action="/series/resenas/delete/<%=unUser.id_usuario%>" method="POST">
+              <input type="submit" value="Borrar">
+            </form>
+          </div>
         </li>
     <% } %>
+
     </ul>
+
+   
 
 </div>
 

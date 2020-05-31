@@ -75,16 +75,16 @@ router.get('/favoritos', controllers.pagina7);
 
 // PAGINA 8 (resenias) ------------------------------------------------------------------------------
 
-router.get('/login', controllers.pagina8);
+router.get('/resenas', controllers.pagina8); // Me lleva al lOGIN para entrear a "Mis Resenñas"
 
 router.post('/guardado_resena', controResena.guarda_resena); 
 
 // PAGINA 11
 
-router.get('/resenas', controllers.pagina11);
+// router.get('/resenas', controllers.pagina11);
 router.post('/validar/', controResena.validar);
 //router.get('/validar/:id_usuario', controResena.user);
-router.get('/resenas/:id_usuario', controResena.user);
+router.get('/resenas/:id_usuario', controResena.user); // Es la pagina del LOGIN con las resenñas del usuario
 
 
 
@@ -100,6 +100,12 @@ router.get('/resenas/:id_usuario', controResena.user);
 router.get('/detalle/:id_usuario', controUser.detalle);
 
 //router.get('/detalle/:id', controResena.info_serie);
+
+// PARTE DE EDITAR y BORRAR
+
+//router.get("/editar/:id_usuario", controResena.editar);
+//router.post("/delete/:id_isuario", controResena.delete);
+
 
 // -------------------------------------------------------------------------------------------------
 
