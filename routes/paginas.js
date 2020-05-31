@@ -57,7 +57,9 @@ router.get('/buscador', controllers.pagina4);
 router.get('/detalle', controResena.id_serie);
 
 
-//router.get("/listado", controResena.listado);
+//router.get("/listado", controResena.id_resena);
+
+router.get("/listado", controResena.listado);
 
 //router.get("/usuario", controResena.usuario);
 
@@ -73,9 +75,17 @@ router.get('/favoritos', controllers.pagina7);
 
 // PAGINA 8 (resenias) ------------------------------------------------------------------------------
 
-router.get('/resenas', controllers.pagina8);
+router.get('/login', controllers.pagina8);
 
 router.post('/guardado_resena', controResena.guarda_resena); 
+
+// PAGINA 11
+
+router.get('/resenas', controllers.pagina11);
+router.post('/validar/', controResena.validar);
+//router.get('/validar/:id_usuario', controResena.user);
+router.get('/resenas/:id_usuario', controResena.user);
+
 
 
 

@@ -175,12 +175,15 @@ div.alert-light{
 }
 
 .series-favoritas h1{
-  background-color: white;
-  margin-top: 23px;
-  font-family: "PT Sans Narrow";
-  background-color: #8f4848;
-  color: white;
-  border: dotted;
+    margin-top: 30px;
+    background-color: rgba(255, 174, 5, 0.84);
+    width: 100%;
+    text-align: center;
+    height: 76px;
+    font-size: 64px;
+    color: white;
+    font-family: 'PT Sans Narrow';
+    border: dotted;
 }
 
 ul.listado-favoritas{
@@ -371,4 +374,36 @@ border: solid 10px #F7C004;
   width: 100%;
 }
 
+}
+
+
+/* ----------------------------------------- PROGRAMACION 2 -------------------------------------------- */
+
+ul.resenas{
+display: flex;
+flex-direction: column;
+padding: 0;
+align-items: center;
+}
+
+ul.resenas li{
+  width: 75%;
+  background: #ffffffc9;
+  margin-bottom: 2%;
+  list-style-type: none;
+  color: black;
+}
+
+div.mis_resenas{
+    position: absolute;
+    top: 5%;
+    right: 0em;
+    background-color: rgba(255, 174, 5, 0.84);
+    width: 100%;
+    text-align: center;
+    height: 76px;
+    font-size: 64px;
+    color: white;
+    font-family: 'PT Sans Narrow';
+    border: dotted;
 }

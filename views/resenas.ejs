@@ -40,7 +40,7 @@
         <li class="li-menu"><a class="li-black" href="/series/generos">Géneros</a></li>
           <li class="li-menu"><a class="li-black" href="/series/busc-avanzado">Buscador</a></li>
             <li class="li-menu"><a class="li-black" href="/series/favoritos">Favoritos</a></li>
-            <li class="li-menu"><a class="li-black" href="/series/resenas">Mis Reseñas</a></li>
+            <li class="li-menu"><a class="li-black" href="/series/login">Mis Reseñas</a></li>
             <li class="li-menu"><a class="li-black" href="/series/buscUser">Usuarios</a></li>
         </ul>
       </nav>
@@ -58,10 +58,14 @@
 
 <div class="series-favoritas">
 
-    <h1>Mis reseñas</h1>
+    <h1>Reseñas de <%=unUser.nombre_usuario%>  <%=unUser.apellido_usuario%></h1>
 
     <ul class="resenas">
-
+      <% for (let i = 0; i < unUser.resenas.length; i++) { %>
+        <li>
+          Id Serie: <%=unUser.resenas[i].id_serie%> <br><%=unUser.resenas[i].texto_resena%> <br>Score: <%=unUser.resenas[i].puntaje_serie%> 
+        </li>
+    <% } %>
     </ul>
 
 </div>
