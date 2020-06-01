@@ -56,8 +56,8 @@ module.exports = {
         db.Usuario.findAll({
             where: {
                 [OP.or]: {
-                    email: { [OP.like]: "%" + req.body.searchUser + "%" },
-                    nombre_usuario: { [OP.like]: "%" + req.body.searchUser + "%" },
+                    email: { [OP.like]: "%" + req.query.searchUser + "%" },
+                    nombre_usuario: { [OP.like]: "%" + req.query.searchUser + "%" },
                 }
             }
         })
@@ -66,7 +66,9 @@ module.exports = {
             // if(usuarios != "") {
                 // res.json(usuarios)
                 res.render('usuarios', {
-                    usuarios: usuarios
+                    usuarios: usuarios,
+                    busqueda: req.query.busqueda
+                    
                 })
             // } else {
             //     //res.send("No encuentro")
