@@ -20,7 +20,28 @@ module.exports = {
 
  
     busqueda: function(req, res) {
-        let filter = {};
+        db.Usuario.findAll({
+            where: {
+                [OP.or]: {
+                    email: {
+                        [OP.like]: "%" + req.query.searchUser +  "%"
+                    }, 
+                    nombre_usuario: {
+                        [OP.like]: "%" + req.query.searchUser +  "%"
+                    }
+                }
+            }
+        })
+        .then(function (resultados) {
+      //  if (resultados.length !=  0) {
+            res.render ('usuarios', {
+                usuarios: resultados
+            })
+      /*  } else {
+            res.send ('Not found')
+        } */
+        })
+     /*   let filter = {};
         let q = req.query.email;
         let b = req.body.nombre_usuario;
 
@@ -36,9 +57,9 @@ module.exports = {
                     email: {[OP.like]: "%" + req.body.nombre_usuario +  "%"}
                 } ]
             };
-        }
+        } */
 
-        db.Usuario.findAll(filter).then((usuarios) => {
+      /*  db.Usuario.findAll(filter).then((usuarios) => {
             console.log(usuarios)
             if(usuarios != "") {
                 //res.json(usuarios)
@@ -49,7 +70,7 @@ module.exports = {
                 //res.send("No encuentro")
                 res.send('Not found')
             }
-        })
+        }) */
     },
             
 // --------------------------------------------------------------------
