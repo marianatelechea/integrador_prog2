@@ -274,6 +274,7 @@ module.exports = {
                 return res.send (error);
             })
     },
+    
 
 
     //////////////////// Elimiar resenas del DB ////////////////////
@@ -322,7 +323,6 @@ module.exports = {
     //         }
     //     })
     // },
-
     delete: (req, res) => { 
         moduloLogin.chequearUsuario(req.body.email)
             .then(resultado => {
