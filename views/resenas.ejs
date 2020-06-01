@@ -60,6 +60,10 @@
 
     <h1>Reseñas de <%=unUser.nombre_usuario%>  <%=unUser.apellido_usuario%></h1>
 
+    <% if (unUser.resenas.length == 0 ) { %>
+      <h2>No has hecho ninguna reseña todavía ..... </h2>
+    <% } else { %>
+
     <ul class="resenas">
       <% for (let i = 0; i < unUser.resenas.length; i++) { %>
         <li>
@@ -77,7 +81,7 @@
 
     </ul>
 
-   
+    <% } %>
 
 </div>
 

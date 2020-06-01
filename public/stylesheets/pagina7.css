@@ -187,6 +187,11 @@ div.alert-light{
     border: dotted;
 }
 
+.series-favoritas h2{
+  color: gainsboro;
+  font-size: 15px;
+}
+
 ul.listado-favoritas{
   display: flex;
   flex-wrap: wrap;
