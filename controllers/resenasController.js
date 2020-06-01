@@ -195,6 +195,7 @@ module.exports = {
     },
 
     actualizar: function(req, res) {
+        // VALIDAR
         let resena = {
             texto_resena: req.body.texto_resena,
             puntaje_serie: req.body.puntaje_serie
@@ -242,6 +243,7 @@ module.exports = {
     delete: function(req,res) {
         moduloLogin.validar(req.body.email, req.params.id)
         .then(resultado => {
+            
             if(resultado != null ){
                 db.Resena.destroy({
                     where: {

@@ -118,6 +118,7 @@ router.post('/resenas/:id', controResena.actualizar);
 router.post('/resenas/delete/:id', controResena.delete);
 
 router.post('/resenas/porEliminar/:id', controResena.porEliminar);
+router.get('/resenas/porEliminar/:id', controResena.porEliminar);
 
 // MEJORES - PEORES - RECIENTES ---> Reseñas //
 
