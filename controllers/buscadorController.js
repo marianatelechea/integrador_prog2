@@ -63,15 +63,15 @@ module.exports = {
         })
         .then((usuarios) => {
             console.log(usuarios)
-            if(usuarios != "") {
+            // if(usuarios != "") {
                 // res.json(usuarios)
                 res.render('usuarios', {
                     usuarios: usuarios
                 })
-            } else {
-                //res.send("No encuentro")
-                res.send('Not found')
-            }
+            // } else {
+            //     //res.send("No encuentro")
+            //     res.send('Not found')
+            // }
         })
     }
 

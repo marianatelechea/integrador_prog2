@@ -99,9 +99,9 @@ router.get('/detalle/:id_usuario', controUser.detalle);
 
 router.get('/busc-usuarios', controllers.pagina9);
 
-router.post('/buscUser', controBucador.busqueda);
+router.get('/buscUser', controBucador.busqueda);
 
-router.get('/buscUser', controllers.pagina9);
+// router.get('/buscUser', controllers.pagina9);
 
 // PAGINA 10 (detalle-usuario)
 
