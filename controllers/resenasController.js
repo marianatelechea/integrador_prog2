@@ -19,9 +19,22 @@ module.exports = {
     id_serie: (req, res) => {
         let id_serie = req.query.id
         //return res.send(id_serie)
-        res.render('descripcion', {
-            id_serie: id_serie
+        db.Resena.findAll({
+            where: { id_serie: req.query.id },
+            include: [{association: "usuario"}]
         })
+        .then(resenas => {
+                // res.send(resenas)
+                res.render('descripcion', {
+                    id_serie: id_serie,
+                    resenas:resenas
+                })
+                // res.render("descripcion", {resenas:resenas})
+        })
+        .catch(error => {
+            return res.send (error);
+        })
+      
     },
 
 
@@ -63,18 +76,9 @@ module.exports = {
 
     //////////////////////////////   LISTADO DE RESEÑAS //////////////////////////////
 
-    listado: (req, res) => {
-        db.Resena.findAll(req.body.texto_resena,{
-            include: [{association: "usuario"}]
-        })
-        .then(resenas => {
-                // res.json(resenas)
-                res.render("descripcion", {resenas:resenas})
-        })
-        .catch(error => {
-            return res.send (error);
-        })
-    },
+    // listado: (req, res) => {
+        
+    // },
 
      //////// Probado listado /////////
 
@@ -223,17 +227,35 @@ module.exports = {
         })
     },
 
+    // delete: function(req,res) {
+    //     db.Resena.destroy({
+    //         where: {
+    //             id_resena: req.params.id
+    //         }
+    //     })
+    //     .then((resultado) => {
+    //         res.redirect('/series/resenas/')
+    //     })
+    // },
+
+
     delete: function(req,res) {
-        db.Resena.destroy({
-            where: {
-                id_resena: req.params.id
+        moduloLogin.validar(req.body.email, req.params.id)
+        .then(resultado => {
+            if(resultado != null ){
+                db.Resena.destroy({
+                    where: {
+                        id_resena: req.params.id
+                    }
+                })
+                .then((resultado) => {
+                    res.redirect('/series/resenas/')
+                })
+            } else {
+            res.redirect('/series/resenas/porEliminar/' + req.params.id)
             }
         })
-        .then((resultado) => {
-            res.redirect('/series/resenas/')
-        })
     },
-
 
      //////////////////////////////   MEJOR - PEOR - RECIENTES => RESEÑAS //////////////////////////////
 

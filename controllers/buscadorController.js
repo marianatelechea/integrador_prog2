@@ -66,7 +66,7 @@ module.exports = {
             // if(usuarios != "") {
                 // res.json(usuarios)
                 res.render('usuarios', {
-                    usuarios: usuarios
+                    usuarios: usuarios,
                 })
             // } else {
             //     //res.send("No encuentro")

@@ -59,7 +59,7 @@ router.get('/detalle', controResena.id_serie);
 
 //router.get("/listado", controResena.id_resena);
 
-router.get('/listado', controResena.listado);
+// router.get('/listado', controResena.listado);
 
 //router.get("/usuario", controResena.usuario);
 
