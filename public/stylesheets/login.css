@@ -1,0 +1,382 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+  }
+  
+  body {
+    font-family: Questrial;
+    font-size: 1em;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  /* // EL BOTON // */
+  
+  form.buscador {
+    position: relative;
+  }
+  
+  form.buscador input.texto{
+    width: 11%;
+      height: 2em;
+      border: 0;
+      border-bottom: 1px solid #aba9a9;
+      position: absolute;
+  top: -11em;
+  right: 3em;
+  text-align: center;
+  font-family: PT Sans Narrow;
+  }
+  
+  form input.boton {
+    position: absolute;
+      top: -11em;
+      right: 3em;
+  }
+  
+  /* -------- NAVEGADOR -------- */
+  
+  
+  .ul-logo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-decoration: none;
+  }
+  
+  .li-logo a {
+      display: flex;
+      justify-content: center;
+  }
+  
+  .li-logo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-bottom: 1px solid black;
+  }
+  
+  .logo {
+    width: 28%;
+    margin-bottom: 9px;
+    margin-top: 10px;
+  }
+  
+  .ul-menu {
+    display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 46%;
+      position: relative;
+      left: 27%;
+  }
+  
+  .li-menu {
+    list-style-type: none;
+    font-size: 26px;
+    font-family: PT Sans Narrow;
+  }
+  
+  .li-menu a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .li-menu a:hover {
+    color: #ffac03;
+    font-size: 1.3em;
+  }
+  
+  label:hover {
+    color: #ffac03;
+    font-size: 2.4em;
+  }
+  
+  label {
+    width: 100%;
+    font-size: 2em;
+    font-family: sans-serif;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  /* ALERTA */
+  
+  div.alert-light{
+   background-color: #ffae04;
+   border: 2px solid black;
+   text-align: center;
+   font-weight: bolder;
+   color: black;
+   font-family: "PT Sans Narrow"
+  }
+  
+  div.alert-light{
+   display: none;
+  }
+  
+
+  
+  
+  
+  /* -------- FOOTER --------- */
+  
+  
+  footer {
+    border-radius: 58%;
+    margin-top: 1%;
+    background-color: #ffffff;
+  }
+  
+  
+  footer img {
+    width: 26%;
+      position: relative;
+      left: 38%;
+      margin-top: 18px;
+  }
+  
+  footer h3 {
+    font-family: PT Sans Narrow;
+    text-align: center;
+  }
+  
+  
+  .lista {
+        display: flex;
+        justify-content: center;
+  }
+  
+  .lista li img {
+    width: 20%;
+  }
+  
+  .lista li {
+    list-style: none;
+    width: 24%;
+  }
+  
+  .ul-footer{
+    border-top: 1px solid gainsboro;
+      margin-top: 26px;
+      border-bottom: 1px solid gainsboro;
+  }
+  
+  .ul-footer ul{
+    display: flex;
+  list-style: none;
+  justify-content: center;
+  margin: 27px;
+  font-family: "PT Sans Narrow"
+  }
+  
+  .ul-footer ul li{
+    padding-right: 22px;
+  border-right: 1px solid black;
+  padding-left: 27px;
+  }
+  
+  .ul-footer ul li.primero{
+    border-left: 1px solid black;
+  }
+  
+  .post-footer {
+    background-color: #000000eb;
+      margin-top: 20px;
+      display: flex;
+  }
+  
+  .post-footer img{
+    width: 13%;
+      padding: 9px;
+  }
+  
+  .nombres {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    color: white;
+  font-size: 10px;
+  justify-content: center;
+  margin-left: 32%;
+  
+  }
+  
+  .nombres label {
+    font-family: PT Sans Narrow;
+  }
+  
+  /* MEDIA QUERY */
+  
+  
+  #menu-mobile{
+    display: none;
+  }
+  
+  @media (min-width: 0px) and (max-width: 450px) {
+  
+    #menu-mobile{
+      display: block;
+    }
+    body {
+        font-family: Questrial;
+        font-size: 1em;
+        width: 70vh;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+    }
+  
+    #lostop5{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    }
+  
+    .top-rated{
+    width: 100%
+    }
+  
+    .watch-now{
+      width: 100%
+    }
+  
+  .ul-logo {
+  padding: 0;
+  }
+  
+  .li-logo a img{
+  width: 33vh;
+  }
+  
+  article.article-top5 a {
+  width: 47vh;
+  top: auto;
+  left: 14%;
+  position: relative;
+  margin: 2%;
+  border: solid 10px #F7C004;
+  }
+  
+  #menu-mobile {
+    margin: 0 auto;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  
+  #menu-desplegable {
+      background-color: transparent;
+      color: #333;
+      border-color: #F7C004;
+      border: 3px solid #F7C004;
+      width: 27%;
+      margin: 0 auto;
+      display: block;
+  
+  }
+  
+  .ul-menu{
+    display: none;
+  }
+  
+  .noticias{
+    width: 100%;
+  }
+  
+  }
+  
+  
+  
+
+
+
+  /* LOGIN */
+
+  div.foto{
+    background-image: url(/images/PAGINA0/FONDO.png);
+  }
+
+  .contenedor{
+    width: 100%;
+    background-color: rgba(135, 129, 118, 0.72);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contenedor form {
+    padding: 8%;
+    display: contents;
+  }
+  
+  .contenedor .textos {
+    font-size:1.5em ;
+    font-family: PT Sans Narrow;
+    padding: 12px;
+    width: 40%;
+    border-radius: 41px;
+    margin-bottom: 15px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: floralwhite;
+    border: 0;
+    font-family: PT Sans Narrow;
+    font-size: 19px;
+    text-decoration: none;
+    text-align: center;
+    margin: 1%;
+  }
+  
+  .contenedor input.input_ingreso{
+    font-size:1.5em ;
+    font-family: PT Sans Narrow;
+    padding: 12px;
+    width: 30%;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    background-color: rgba(255, 255, 255, 0.92);
+    color: black;
+    border: 0;
+    font-family: PT Sans Narrow;
+    font-size: 19px;
+    text-decoration: none;
+    text-align: center;
+    margin: 1%;
+  }
+  
+  .contenedor h2{
+    font-family: "PT Sans Narrow";
+    margin: 0 auto;
+    color: white;
+    font-size: 20px;
+  }
+
+  .contenedor h3{
+    font-family: "PT Sans Narrow";
+    margin: 0 auto;
+    color: white;
+    font-size: 75px;
+  }
+  
+  .contenedor a:hover{
+    background: black;
+  }
+
+  .contenedor .ingreso {
+    padding: 12px;
+    width: 40%;
+    border-radius: 41px;
+    margin-bottom: 15px;
+    background-color: rgba(255, 174, 5, 0.84);
+    color: floralwhite;
+    border: 0;
+    font-family: PT Sans Narrow;
+    font-size: 19px;
+    text-decoration: none;
+    text-align: center;
+  }
+  
+ 
+
+  

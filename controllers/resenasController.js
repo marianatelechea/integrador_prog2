@@ -63,27 +63,126 @@ module.exports = {
 
     //////////////////////////////   LISTADO DE RESEÑAS //////////////////////////////
 
-    listado:function(req, res){
-        db.Resena.findAll({ include: [{association: "usuario"}]})
-            .then(resenas => {
-                res.render("descripcion", {resenas:resenas})
+    listado: function(req, res) {
+        let filter = {};
+        let r = req.body.texto_resena;
+
+        if (r){
+            filter = {
+                where: [ {
+                    resenas: {[OP.like]: "%" + req.body.texto_resena +  "%"}
+                } ]
+            };
+        } 
+
+        db.Resena.findAll(filter,{
+            include: [{association: "usuario"}]
+        })
+                .then((resenas) => {
+                    if(resenas != "") {
+                        //res.json(usuarios)
+                        res.render('descripcion', {
+                            resenas: resenas
+                        })
+                    } else {
+                        //res.send("No encuentro")
+                        res.send('Not found')
+                    }
+                    // console.log(resenas)
+                   
+                })
+    },
+
+    // id_resena: (req, res) => {
+    //     let id_resena = req.query.id_resena
+    //     //return res.send(id_serie)
+    //     res.render('descripcion', {
+    //         id_resena: id_resena
+    //     })
+    // },
+
+    // listado: function(req, res){
+    //     db.Resena.findAll(req.body.texto_resena,{
+    //         include: [{association: "usuario"}]
+    //     })
+    //     .then(resenas => {
+    //         res.render("descripcion", {resenas:resenas})
+    //     })
+    //     .catch(error => {
+    //         return res.send (error);
+    //     })
+    // },
+
+    // listado: function(req, res){
+    //     db.Resena.findAll(req.body.texto_resena,{
+    //         include: [{association: "usuario"}]
+    //     })
+    //     .then(resenas => {
+    //         res.render("descripcion", {resenas:resenas})
+    //     })
+    //     .catch(error => {
+    //         return res.send (error);
+    //     })
+    // },
+            
+
+    // detalle: function(req, res){
+    //     db.Resena.findByPk(req.params.id,{
+    //         include: [{association: "usuario"}]
+    //     })
+    //     .then(unaResena => {
+    //         res.render("resenas", {unaResena:unaResena})
+    //     })
+    //     .catch(error => {
+    //         return res.send (error);
+    //     })
+    // }
+
+    //////////////////////////////   MIS RESEÑAS //////////////////////////////
+
+    validar: (req, res) => { 
+        moduloLogin.chequearUsuario(req.body.email)
+            .then(resultado => {
+                moduloLogin.validar(req.body.email, {
+                    include: [{association: "resenas"}]
+                } )
+                .then(resultado => {
+                        console.log(resultado); 
+                        if (resultado  == null){
+                            res.send("El E-mail NO esta en la base de datos")
+                            console.log("El E-mail NO esta en la base de datos");
+                        }else { 
+                            if (bcrypt.compareSync(req.body.contraseña, resultado.contraseña)) {
+                                // console.log("JOYA");
+                                //res.render("resenas")        
+                                res.redirect('/series/resenas/' + resultado.id_usuario)
+                            } else {  
+                                console.log("Te equivocaste BRO"); 
+                                res.send("Falló la validación")  
+                            
+                        }
+                        }
+                    })
+                
             })
             .catch(error => {
                 return res.send (error);
             })
     },
 
-    detalle: function(req, res){
-        db.Resena.findByPk(req.params.id,{
-            include: [{association: "usuario"}]
+    user: (req, res) =>{
+        db.Usuario.findByPk(req.params.id_usuario,{
+            include: [{association: "resenas"}]
         })
-        .then(unaResena => {
-            res.render("resenas", {unaResena:unaResena})
+        .then(unUser => {
+               // res.json(unUser)
+                res.render("resenas", {unUser:unUser})
         })
         .catch(error => {
             return res.send (error);
         })
-    }
+    },
+
 };
 
 

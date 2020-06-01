@@ -142,10 +142,11 @@ div.alert-light{
 /* BUSCADOR DE SERIES FAV */
 
 .series-favoritas form input{
-  width: 75%;
-  height: 4em;
+  width: 211%;
+  height: 2em;
   background: #ffffff4a;
   border-radius: 14px;
+  border-style: none;
 }
 
 .listado-favoritas h3 a{
@@ -175,12 +176,15 @@ div.alert-light{
 }
 
 .series-favoritas h1{
-  background-color: white;
-  margin-top: 23px;
-  font-family: "PT Sans Narrow";
-  background-color: #8f4848;
-  color: white;
-  border: dotted;
+    margin-top: 30px;
+    background-color: rgba(255, 174, 5, 0.84);
+    width: 100%;
+    text-align: center;
+    height: 76px;
+    font-size: 64px;
+    color: white;
+    font-family: 'PT Sans Narrow';
+    border: dotted;
 }
 
 ul.listado-favoritas{
@@ -371,4 +375,53 @@ border: solid 10px #F7C004;
   width: 100%;
 }
 
+}
+
+
+/* ----------------------------------------- PROGRAMACION 2 -------------------------------------------- */
+
+ul.resenas{
+display: flex;
+flex-direction: column;
+padding: 0;
+align-items: center;
+}
+
+ul.resenas li{
+  width: 40%;
+  background: #ffffffc9;
+  margin-bottom: 2%;
+  list-style-type: none;
+  color: black;
+  padding-top: 1.5%;
+}
+
+div.mis_resenas{
+    position: absolute;
+    top: 5%;
+    right: 0em;
+    background-color: rgba(255, 174, 5, 0.84);
+    width: 100%;
+    text-align: center;
+    height: 76px;
+    font-size: 64px;
+    color: white;
+    font-family: 'PT Sans Narrow';
+    border: dotted;
+}
+
+.series-favoritas div.edit_delete{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: 4%;
+  margin-left: -23px;
+}
+
+.series-favoritas div.edit_delete a{
+  width: 16%;
+    background: #ffffff4a;
+    border-radius: 14px;
+    color: black;
 }

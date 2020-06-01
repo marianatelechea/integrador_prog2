@@ -124,8 +124,8 @@ module.exports = {
 
 // INICIO RESEÑA -------------------------------------------------------------------
 
-    pagina8:(req, res) => {  return res.render('resenas');},
-
+    pagina8:(req, res) => {  return res.render('login');},
+    pagina11:(req, res) => {  return res.render('resenas');},
     
 
 // ----------------------------------------------------------------------- FIN RESEÑA
