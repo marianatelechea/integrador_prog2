@@ -32,7 +32,7 @@ module.exports = {
                 }
             }
         })
-        .then(function (resultados) {
+        .then(function (resultados) { // funciona pero falta la vista con el if!
       //  if (resultados.length !=  0) {
             res.render ('usuarios', {
                 usuarios: resultados
