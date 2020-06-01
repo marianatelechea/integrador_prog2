@@ -332,7 +332,7 @@ module.exports = {
                 .then(resultado => {
                         console.log(resultado); 
                         if (resultado  == null){
-                            res.send("El E-mail NO esta en la base de datos")
+                            res.send("El E-mail NO esta en la base de dato")
                             console.log("El E-mail NO esta en la base de datos");
                         }else { 
                             if (bcrypt.compareSync(req.body.contraseña, resultado.contraseña)) {
