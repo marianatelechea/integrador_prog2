@@ -59,7 +59,7 @@ router.get('/detalle', controResena.id_serie);
 
 //router.get("/listado", controResena.id_resena);
 
-router.get("/listado", controResena.listado);
+router.get('/listado', controResena.listado);
 
 //router.get("/usuario", controResena.usuario);
 
@@ -115,5 +115,11 @@ router.post('/resenas/:id', controResena.actualizar);
 router.post('/resenas/delete/:id', controResena.delete);
 
 router.post('/resenas/porEliminar/:id', controResena.porEliminar);
+
+// MEJORES - PEORES - RECIENTES ---> Reseñas //
+
+router.get('/mejoresResenas', controResena.mejores);
+router.get('/peoresResenas', controResena.peores);
+router.get('/recientesResenas', controResena.recientes);
 
 module.exports = router;

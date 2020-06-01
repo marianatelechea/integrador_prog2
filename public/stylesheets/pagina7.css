@@ -446,3 +446,32 @@ color: white;
   color: white;
   }
 
+
+  /* Pagina de Mejores resenas */
+
+  .series-favoritas div.ver-serie{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 4%;
+    margin-left: -23px;
+    padding-left: 3em;
+  }
+
+  .series-favoritas div.ver-serie a{
+    width: 16%;
+      background: #ffffff4a;
+      border-radius: 14px;
+      color: black
+  }
+
+  .series-favoritas div.ver-serie a.botver:hover{
+    list-style-type: none;
+    text-decoration: none;
+    background-color:goldenrod ;
+    color: white;
+    }
+
+
+  

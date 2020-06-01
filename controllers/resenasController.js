@@ -63,36 +63,71 @@ module.exports = {
 
     //////////////////////////////   LISTADO DE RESEÑAS //////////////////////////////
 
-    listado: function(req, res) {
-        let filter = {};
-        let r = req.body.texto_resena;
-
-        if (r){
-            filter = {
-                where: [ {
-                    resenas: {[OP.like]: "%" + req.body.texto_resena +  "%"}
-                } ]
-            };
-        } 
-
-        db.Resena.findAll(filter,{
+    listado: (req, res) => {
+        db.Resena.findAll(req.body.texto_resena,{
             include: [{association: "usuario"}]
         })
-                .then((resenas) => {
-                    if(resenas != "") {
-                        //res.json(usuarios)
-                        res.render('descripcion', {
-                            resenas: resenas
-                        })
-                    } else {
-                        //res.send("No encuentro")
-                        res.send('Not found')
-                    }
-                    // console.log(resenas)
-                   
-                })
+        .then(resenas => {
+                // res.json(resenas)
+                res.render("descripcion", {resenas:resenas})
+        })
+        .catch(error => {
+            return res.send (error);
+        })
     },
 
+     //////// Probado listado /////////
+
+    // listado: function(req, res){
+    //     db.Usuario.findAll()
+    //     .then((resenas) => {
+
+    //         db.Resena.findByPk(req.query.id,{
+    //             include: [{association: "usuario"}]
+    //         })
+    //         .then((resenas) => {
+    //             res.json(resenas)
+    //             // res.render("descripcion", {
+    //             //     resenas: resenas,
+    //             // })
+    //         })
+
+    //     })
+    // },
+
+  
+
+    // listado: function(req, res) {
+    //     let filter = {};
+    //     let r = req.body.texto_resena;
+
+    //     if (r){
+    //         filter = {
+    //             where: [ {
+    //                 resenas: {[OP.like]: "%" + req.body.texto_resena +  "%"}
+    //             } ]
+    //         };
+    //     } 
+
+    //     db.Resena.findAll(filter,{
+    //         include: [{association: "usuario"}]
+    //     })
+    //             .then((resenas) => {
+    //                 if(resenas != "") {
+    //                     //res.json(usuarios)
+    //                     return('descripcion', {
+    //                         resenas: resenas
+    //                     })
+    //                 } else {
+    //                     //res.send("No encuentro")
+    //                     res.send('Not found')
+    //                 }
+    //                 // console.log(resenas)
+                   
+    //             })
+    // },
+
+  
 
     //////////////////////////////   MIS RESEÑAS //////////////////////////////
 
@@ -139,7 +174,7 @@ module.exports = {
         })
     },
 
-    //////////////////////////////   Editar  //////////////////////////////
+    //////////////////////////////   Editar resenñas del DB  //////////////////////////////
     
     editar: function(req, res){
         db.Usuario.findAll()
@@ -171,6 +206,9 @@ module.exports = {
         })
     },
 
+
+    //////////////////// Elimiar resenas del DB ////////////////////
+
     porEliminar: function(req, res){
         db.Usuario.findAll()
         .then((borrar) => {
@@ -194,7 +232,178 @@ module.exports = {
         .then((resultado) => {
             res.redirect('/series/resenas/')
         })
-    }
+    },
+
+
+     //////////////////////////////   MEJOR - PEOR - RECIENTES => RESEÑAS //////////////////////////////
+
+    
+    // mejores: function(req, res) {
+    //     let filter = {};
+    //     let r = req.body.texto_resena;
+    //     // let q = req.body.puntaje_serie;
+
+    //     if (r){
+    //         filter = {
+    //             where: {
+    //                         texto_resena: {[OP.like]: '%' + r +  '%'},
+    //                         // puntaje_serie: {[OP.like]: [{repuntaje_serie:10}]}        
+    //                     },
+    //             order: [
+    //                 ['puntaje_serie', 'ASC'],
+    //             ]
+    //         }
+    //                 // resenas: {[OP.like]: "%" + req.body.texto_resena +  "%"},
+    //                 // puntaje_serie: {[OP.like]: [{puntaje_serie:10},{puntaje_serie:9},{puntaje_serie:8},{puntaje_serie:7},{puntaje_serie:6},{puntaje_serie:5}]}
+               
+    //     } //else if(q){
+    //     //     filter = {
+    //     //         where: {
+    //     //                     puntaje_serie: {[OP.like]: [{puntaje_serie:10}]}        
+    //     //                 }
+    //     //     }
+    //     // }
+
+
+    //     db.Resena.findAll(filter,{
+    //         include: [{association: "usuario"}]
+    //     })
+    //             .then((resenas) => {
+    //                 if(resenas != "") {
+    //                     // res.json(resenas)
+    //                     res.render('mejoresRes', {
+    //                         resenas: resenas
+    //                     })
+    //                 } else {
+    //                     //res.send("No encuentro")
+    //                     res.send('Not found')
+    //                 }
+    //                 // console.log(resenas)
+                   
+    //             })
+    // }
+
+    // mejores: (req, res) => {
+    //     db.Resena.findAll( 
+    //         { 
+    //             where: {
+    //                         // [OP.and]: {
+    //                        texto_resena: { [OP.like]: req.body.texto_resena  },
+    //                        puntaje_serie: {
+    //                         [OP.between]: [5, 10],         
+    //                       }
+    //                                 // [OP.eq]: [{puntaje_serie:10},{puntaje_serie:9},{puntaje_serie:8},{puntaje_serie:7},{puntaje_serie:6},{puntaje_serie:5}]
+    //                         // }
+    //                   }
+    //         },
+    //         { 
+    //             include: [{association: "usuario"}]
+    //         }
+    //     )
+    //     .then(resenas => {
+    //         if(resenas != "") {
+    //             res.json(resenas)
+    //             // res.render("descripcion", {resenas:resenas})
+    //         } else {
+    //             //res.send("No encuentro")
+    //             res.send('Not found')
+    //         }
+    //     })
+    //     .catch(error => {
+    //         return res.send (error);
+    //     })
+    // },
+
+    mejores: (req, res) =>{
+        db.Resena.findAll(req.body.texto_resena,{
+            include: [{association: "usuario"}]
+        })
+        .then(resenas => {
+            db.Resena.findAll({
+                where: {
+                    puntaje_serie: {
+                         [OP.between]: [5, 10],         
+                    }
+
+                },
+                order: [
+                    ['puntaje_serie', 'DESC']
+                ]
+            })
+            .then(resenas =>{
+                //res.json(resenas)
+                res.render("mejoresRes", {resenas:resenas})
+            })
+            .catch(error => {
+                return res.send (error);
+            })
+              
+        })
+        .catch(error => {
+            return res.send (error);
+        })
+    },
+
+    peores: (req, res) =>{
+        db.Resena.findAll(req.body.texto_resena,{
+            include: [{association: "usuario"}]
+        })
+        .then(resenas => {
+            db.Resena.findAll({
+                where: {
+                    puntaje_serie: {
+                         [OP.between]: [0, 5],         
+                    }
+
+                },
+                order: [
+                    ['puntaje_serie', 'DESC']
+                ]
+            })
+            .then(resenas =>{
+                //res.json(resenas)
+                res.render("peoresRes", {resenas:resenas})
+            })
+            .catch(error => {
+                return res.send (error);
+            })
+              
+        })
+        .catch(error => {
+            return res.send (error);
+        })
+    },
+
+    recientes: (req, res) =>{
+        db.Resena.findAll(req.body.texto_resena,{
+            include: [{association: "usuario"}]
+        })
+        .then(resenas => {
+            db.Resena.findAll({
+                order: [
+                    ['fecha_actualizacion', 'DESC']
+                ]
+            })
+            .then(resenas =>{
+                //res.json(resenas)
+                res.render("recientesRes", {resenas:resenas})
+            })
+            .catch(error => {
+                return res.send (error);
+            })
+              
+        })
+        .catch(error => {
+            return res.send (error);
+        })
+    },
+
+
+
+    
+
+
+   
 };
 
 
