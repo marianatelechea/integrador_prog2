@@ -91,6 +91,7 @@ router.get('/resenas/:id_usuario', controResena.user); // Es la pagina del LOGIN
 
 
 router.get('/detalle/:id_usuario', controUser.detalle);
+router.get('/detalle/:id_usuario', controUser.detalle);
 
 // -------------------------------------------------------------------------------------------------
 
@@ -98,7 +99,9 @@ router.get('/detalle/:id_usuario', controUser.detalle);
 
 router.get('/busc-usuarios', controllers.pagina9);
 
-router.get('/buscUser', controBucador.busqueda);
+router.post('/buscUser', controBucador.busqueda);
+
+router.get('/buscUser', controllers.pagina9);
 
 // PAGINA 10 (detalle-usuario)
 

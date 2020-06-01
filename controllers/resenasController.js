@@ -385,7 +385,7 @@ module.exports = {
                 ]
             })
             .then(resenas =>{
-                //res.json(resenas)
+                //res.json(resenas)               
                 res.render("recientesRes", {resenas:resenas})
             })
             .catch(error => {
