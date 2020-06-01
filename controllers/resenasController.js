@@ -194,21 +194,85 @@ module.exports = {
         })
     },
 
-    actualizar: function(req, res) {
-        // VALIDAR
-        let resena = {
-            texto_resena: req.body.texto_resena,
-            puntaje_serie: req.body.puntaje_serie
-        }
+    // actualizar: function(req, res) {
+    //     moduloLogin.validar(req.body.email, req.params.id)
+    //     let resena = {
+    //         texto_resena: req.body.texto_resena,
+    //         puntaje_serie: req.body.puntaje_serie
+    //     }
 
-        db.Resena.update(resena, {
-            where: {
-                id_resena: req.params.id
-            }
-        })
-        .then((resultado) => {
-            res.redirect('/series/resenas/')
-        })
+    //     db.Resena.update(resena, {
+    //         where: {
+    //             id_resena: req.params.id
+    //         }
+    //     })
+    //     .then((resultado) => {
+    //         res.redirect('/series/resenas/')
+    //     })
+    // },
+
+    // actualizar: function(req,res) {
+    //     moduloLogin.validar(req.body.email, req.params.id)
+    //     .then(resultado => {
+            
+    //         if(resultado != null ){
+    //             let resena = {
+    //                 texto_resena: req.body.texto_resena,
+    //                 puntaje_serie: req.body.puntaje_serie
+    //             }
+        
+    //             db.Resena.update(resena, {
+    //                 where: {
+    //                     id_resena: req.params.id
+    //                 }
+    //             })
+    //             .then((resultado) => {
+    //                 res.redirect('/series/resenas/')
+    //             })
+    //         } else {
+    //         res.redirect('/series/resenas/')
+    //         }
+    //     })
+    // },
+
+    actualizar: (req, res) => { 
+        moduloLogin.chequearUsuario(req.body.email)
+            .then(resultado => {
+                moduloLogin.validar(req.body.email, {
+                    include: [{association: "resenas"}]
+                } )
+                .then(resultado => {
+                        console.log(resultado); 
+                        if (resultado  == null){
+                            res.send("El E-mail NO esta en la base de datos")
+                            console.log("El E-mail NO esta en la base de datos");
+                        }else { 
+                            if (bcrypt.compareSync(req.body.contraseña, resultado.contraseña)) {
+                                let resena = {
+                                    texto_resena: req.body.texto_resena,
+                                    puntaje_serie: req.body.puntaje_serie
+                                }
+                        
+                                db.Resena.update(resena, {
+                                    where: {
+                                        id_resena: req.params.id
+                                    }
+                                })
+                                .then((resultado) => {
+                                    res.redirect('/series/resenas/')
+                                })
+                            } else {  
+                                console.log("Te equivocaste BRO"); 
+                                res.send("Falló la validación")  
+                            
+                        }
+                        }
+                    })
+                
+            })
+            .catch(error => {
+                return res.send (error);
+            })
     },
 
 
@@ -240,23 +304,57 @@ module.exports = {
     // },
 
 
-    delete: function(req,res) {
-        moduloLogin.validar(req.body.email, req.params.id)
-        .then(resultado => {
+    // delete: function(req,res) {
+    //     moduloLogin.validar(req.body.email, req.params.id)
+    //     .then(resultado => {
             
-            if(resultado != null ){
-                db.Resena.destroy({
-                    where: {
-                        id_resena: req.params.id
-                    }
-                })
-                .then((resultado) => {
-                    res.redirect('/series/resenas/')
-                })
-            } else {
-            res.redirect('/series/resenas/porEliminar/' + req.params.id)
-            }
-        })
+    //         if(resultado != null ){
+    //             db.Resena.destroy({
+    //                 where: {
+    //                     id_resena: req.params.id
+    //                 }
+    //             })
+    //             .then((resultado) => {
+    //                 res.redirect('/series/resenas/')
+    //             })
+    //         } else {
+    //         res.redirect('/series/resenas/porEliminar/' + req.params.id)
+    //         }
+    //     })
+    // },
+
+    delete: (req, res) => { 
+        moduloLogin.chequearUsuario(req.body.email)
+            .then(resultado => {
+                moduloLogin.validar(req.body.email, {
+                    include: [{association: "resenas"}]
+                } )
+                .then(resultado => {
+                        console.log(resultado); 
+                        if (resultado  == null){
+                            res.send("El E-mail NO esta en la base de datos")
+                            console.log("El E-mail NO esta en la base de datos");
+                        }else { 
+                            if (bcrypt.compareSync(req.body.contraseña, resultado.contraseña)) {
+                                db.Resena.destroy({
+                                    where: {
+                                        id_resena: req.params.id
+                                    }
+                                })
+                                .then((resultado) => {
+                                    res.redirect('/series/resenas/')
+                                })
+                            } else {  
+                                res.redirect('/series/resenas/porEliminar/' + req.params.id)
+                            
+                        }
+                        }
+                    })
+                
+            })
+            .catch(error => {
+                return res.send (error);
+            })
     },
 
      //////////////////////////////   MEJOR - PEOR - RECIENTES => RESEÑAS //////////////////////////////
