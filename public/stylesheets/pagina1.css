@@ -560,3 +560,39 @@ footer h3 {
 
 
     }
+
+
+    /* RESEÑAS  */
+
+ul.uk-navbar-nav li a.tituleres{
+  padding: 0;
+  color: black;
+  margin: 0;
+  margin-top: -26%;
+  font-family: PT Sans Narrow;
+text-transform: none;
+list-style-type: none;
+font-size: 26px;
+font-family: PT Sans Narrow;
+padding: 0;
+
+}
+
+ul.uk-navbar-nav li a.tituleres:hover{
+color: #ffac03;
+font-size: 1.1em;
+padding: 0;
+margin-top: -15%;
+font-family: PT Sans Narrow;
+text-transform: none;
+
+}
+
+ul li a.lasresenas{
+  font-size: 61%;
+  
+  }
+  ul li a.lasresenas:hover{
+  font-size: 91%;
+  color: #ffac03;
+  }

@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <title>Movfly</title>
-  <link rel="stylesheet" href="/stylesheets/pagina6.css">
-  <link rel="shortcut icon" href="/images/PAGINA6/logo.ico">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css" />
-  <script src="/javascripts/pagina6.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css" />
+  <link rel="stylesheet" href="/stylesheets/pagina7.css">
+  <link rel="shortcut icon" href="/images/PAGINA7/logo.ico">
+  <script src="/javascripts/pagina7.js" charset="utf-8"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
   <body>
@@ -17,22 +17,22 @@
       <nav class="barra-navegacion">
         <ul class="ul-logo">
           <li class="li-logo">
-            <a href="/series/inicio"><img src="/images/PAGINA6/LOGOMOVIFLY.png" alt="Movfy logo" class="logo"></a>
+            <a href="/series/inicio"><img src="/images/PAGINA7/LOGOMOVIFLY.png" alt="Movfy logo" class="logo"></a>
           </li>
         </ul>
       </nav>
 
       <nav id="menu-mobile">
-              <button class="uk-button uk-button-default" id="menu-desplegable" type="button"> <span uk-icon="menu"></span> </button>
-              <div uk-dropdown>
-                  <ul class="uk-nav uk-dropdown-nav">
-                    <li class="li-menu"><a class="li-black" href="/series/inicio">Home</a></li>
-                    <li class="li-menu"><a class="li-black" href="/series/generos"> Generos </a></li>
-                    <li class="li-menu"><a class="li-black" href="/series/busc-avanzado">Buscador</a></li>
-                    <li class="li-menu"><a class="li-black" href="#flex2">Mi Cuenta</a></li>
-                  </ul>
-              </div>
-          </nav>
+          <button class="uk-button uk-button-default" id="menu-desplegable" type="button"> <span uk-icon="menu"></span> </button>
+          <div uk-dropdown>
+              <ul class="uk-nav uk-dropdown-nav">
+                <li class="li-menu"><a class="li-black" href="/series/inicio">Home</a></li>
+                <li class="li-menu"><a class="li-black" href="/series/generos"> Generos </a></li>
+                <li class="li-menu"><a class="li-black" href="/series/busc-avanzado">Buscador</a></li>
+                <li class="li-menu"><a class="li-black" href="#flex2">Mi Cuenta</a></li>
+              </ul>
+          </div>
+      </nav>
 
       <nav>
         <ul class="ul-menu">
@@ -60,69 +60,55 @@
       <div class="elbuscador">
         <form class="buscador" action="/series/buscador" method="get">
             <input type="text" name="buscador" value="" class="buscador-simple texto">
-            <input type=image src="/images/PAGINA6/buscador.png" width="17" name="" value="Buscar" class="boton">
+            <input type=image src="/images/PAGINA7/buscador.png" width="17" name="" value="Buscar" class="boton">
         </form>
       </div>
+
+
     </header>
 
-    <!------------------------------------- PROGRAMACION II ------------------------------------->
 
 
-    <section class="busc-usuarios">
-      <div class="busc-usuarios">
+    <div class="series-favoritas">
 
-          <div class="titulo">
-            <p>BUSCADOR DE USUARIOS</p>
-          </div>
-          <form class="busc" action="/series/buscUser" method="GET">
-              <label for="">EMAIL / NOMBRE DE USUARIO</label>
-              <br>
-              <input type="text" name="busqueda" value="true" hidden> 
-              <input class = "users" type="text" name="searchUser"  value="" required>
-              <input type=image src="/images/PAGINA6/usuario.png" width="17" name="" value="" class="busc-user">
-        
-          </form>
+      <h1>Las Reseñas Más Recientes</h1>
+  
+      <ul class="resenas">
+        <% for (let i = 0; i < resenas.length; i++) { %>
+          <li>
+            Id Serie: <%=resenas[i].id_serie%> <br><%=resenas[i].texto_resena%> <br>Score: <%=resenas[i].puntaje_serie%> 
+  
+            <div class="ver-serie">
+              <a href="/series/detalle?id=<%=resenas[i].id_serie%>" class="botver">Ver Serie</a>
+            </div>
+  
+          </li>
+      <% } %>
+  
+      </ul>
+     
+  
+  </div>
 
-        </div>
-
-    </section>
-
-    
-    <section class="usuarios">
- <% if (usuarios.length != 0) { %>     
-  <% for (let i = 0; i < usuarios.length; i++) { %>
-    <li>
-      <a href="/series/detalle/<%=usuarios[i].id_usuario%>"> 
-        <%=usuarios[i].nombre_usuario%> <%=usuarios[i].apellido_usuario%>: <%=usuarios[i].email%> 
-      </a>
-    </li>
-    <% } %> 
-<% } else if(busqueda == "true")  { %> 
-
-  <p> No encontramos ningún usuario, perdon! </p>
-  <% } %> 
-    </section>
-
-    <!----------------------------------------------------------------------------------------------->
 
     <footer>
-      <img src="/images/PAGINA6/LOGOMOVIFLY.png" alt="">
+      <img src="/images/PAGINA7/LOGOMOVIFLY.png" alt="">
       <h3>Las mejores series para vos</h3>
     <div class="redes">
       <ul>
         <img src="" alt="">
         <div class="lista">
           <li>
-            <a href="https://www.facebook.com/"><img src="/images/PAGINA6/facebook.png" alt=""></a>
+            <a href="https://www.facebook.com/"><img src="/images/PAGINA7/facebook.png" alt=""></a>
           </li>
           <li>
-            <a href="https://www.twitter.com/"><img src="/images/PAGINA6/twitter.png" alt=""></a>
+            <a href="https://www.twitter.com/"><img src="/images/PAGINA7/twitter.png" alt=""></a>
           </li>
           <li>
-            <a href="https://www.instagram.com/"><img src="/images/PAGINA6/instagram.png" alt=""></a>
+            <a href="https://www.instagram.com/"><img src="/images/PAGINA7/instagram.png" alt=""></a>
           </li>
           <li>
-            <a href="https://www.youtube.com/"><img src="/images/PAGINA6/youtube.png" alt=""></a>
+            <a href="https://www.youtube.com/"><img src="/images/PAGINA7/youtube.png" alt=""></a>
           </li>
         </div>
       </ul>
@@ -137,17 +123,21 @@
     </div>
     </footer>
     <div class="post-footer">
-        <img src="/images/PAGINA6/logoTMB.png" alt="">
+        <img src="/images/PAGINA7/logoTMB.png" alt="">
         <div class="nombres">
 
 
         <label for="">Mariana Telechea</label>
         <label for="">Agostina Rivas</label>
         <label for="">Milagros Scipioni</label>
-        
+
         </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit-icons.min.js"></script>
+
+
+
   </body>
 </html>

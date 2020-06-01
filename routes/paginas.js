@@ -59,7 +59,7 @@ router.get('/detalle', controResena.id_serie);
 
 //router.get("/listado", controResena.id_resena);
 
-router.get("/listado", controResena.listado);
+// router.get('/listado', controResena.listado);
 
 //router.get("/usuario", controResena.usuario);
 
@@ -84,28 +84,14 @@ router.post('/guardado_resena', controResena.guarda_resena);
 // router.get('/resenas', controllers.pagina11);
 router.post('/validar/', controResena.validar);
 //router.get('/validar/:id_usuario', controResena.user);
-router.get('/resenas/:id_usuario', controResena.user); // Es la pagina del LOGIN con las resenñas del usuario
-
-
+router.get('/resenas/:id_usuario', controResena.user); // Es la pagina del LOGIN con las reseñas del usuario
 
 
 /////////////////
 
-// router.get('/resenas', controResena.listado);
-
-// router.get('/detalle', controResena.detalle);
-
-// router.get('/usuarios', controUser.listado);
 
 router.get('/detalle/:id_usuario', controUser.detalle);
-
-//router.get('/detalle/:id', controResena.info_serie);
-
-// PARTE DE EDITAR y BORRAR
-
-//router.get("/editar/:id_usuario", controResena.editar);
-//router.post("/delete/:id_isuario", controResena.delete);
-
+router.get('/detalle/:id_usuario', controUser.detalle);
 
 // -------------------------------------------------------------------------------------------------
 
@@ -115,8 +101,29 @@ router.get('/busc-usuarios', controllers.pagina9);
 
 router.get('/buscUser', controBucador.busqueda);
 
+// router.get('/buscUser', controllers.pagina9);
+
 // PAGINA 10 (detalle-usuario)
 
 router.get('/detalle-usuario/', controllers.pagina10);
+
+// PAGINA 12 (Editar Series)
+
+router.get('/resenas/editar/:id', controResena.editar);
+
+router.post('/resenas/:id', controResena.actualizar);
+
+// PAGINA 13 (Borrar Series)
+
+router.post('/resenas/delete/:id', controResena.delete);
+
+router.post('/resenas/porEliminar/:id', controResena.porEliminar);
+router.get('/resenas/porEliminar/:id', controResena.porEliminar);
+
+// MEJORES - PEORES - RECIENTES ---> Reseñas //
+
+router.get('/mejoresResenas', controResena.mejores);
+router.get('/peoresResenas', controResena.peores);
+router.get('/recientesResenas', controResena.recientes);
 
 module.exports = router;

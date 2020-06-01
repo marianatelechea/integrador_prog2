@@ -39,7 +39,19 @@
             <li class="li-menu"><a class="li-black" href="/series/favoritos">Favoritos</a></li>
             <li class="li-menu"><a class="li-black" href="/series/resenas">Mis Reseñas</a></li>
             <li class="li-menu"><a class="li-black" href="/series/buscUser">Usuarios</a></li>
-            
+            <ul class="li-menu uk-navbar-nav" uk-navbar="mode: click">
+              <li>
+                  <a class="tituleres" href="#">Reseñas</a>
+                  <div class="uk-navbar-dropdown">
+                      <ul class="uk-nav uk-navbar-dropdown-nav">
+                          <li class="uk-active li-menu"><a class="lasresenas" href="/series/mejoresResenas">Mejores Reseñas</a></li>
+                          <li class="uk-active li-menu"><a class="lasresenas"href="/series/peoresResenas">Peores Reseñas</a></li>
+                          <li class="uk-active li-menu"><a class="lasresenas"href="/series/recientesResenas">Reseñas más recientes</a></li>
+                      </ul>
+                  </div>
+              </li>
+  
+          </ul>
         </ul>
       </nav>
       <div class="elbuscador">
@@ -52,8 +64,8 @@
     </header>
     <div class="foto">
     <div class="contenedor">
-      <h3>LOGIN</h3>
-      <form action="/series/validar/" method="POST">
+      <h3>Editar Reseña</h3>
+      <form action="/series/resenas/<%=editar.id_resena%>" method="POST">
         <label class = "textos">Email del usuario:</label>
         <input class = "input_ingreso" type="email" name="email" required>
         <br>
@@ -62,7 +74,23 @@
         <input class = "input_ingreso" type="password" name="contraseña" required>
         <br>
 
-        <button type="submit" class="ingreso">Ingresar</button>   
+        <label class="textos">Comentario:</label>
+        <input class = "input_ingreso" type="text" name="texto_resena" required value="<%=editar.texto_resena%>">
+        <br>
+
+        <div class="score">
+            <label for="" class="no_hover">Score:</label>
+              <!---<fieldset class="uk-fieldset">-->
+            <div class="uk-margin">
+                      <input class="uk-range" type="range" value="<%=editar.puntaje_serie%>" min="0" max="10" step="1" name="puntaje_serie">
+                  </div>
+              <!--</fieldset>-->
+            
+        </div>
+
+
+
+        <button type="submit" class="ingreso">EDITAR RESEÑA</button>   
     </div>
   </div>
     <footer>

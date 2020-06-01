@@ -187,6 +187,11 @@ div.alert-light{
     border: dotted;
 }
 
+.series-favoritas h2{
+  color: gainsboro;
+  font-size: 15px;
+}
+
 ul.listado-favoritas{
   display: flex;
   flex-wrap: wrap;
@@ -394,6 +399,7 @@ ul.resenas li{
   list-style-type: none;
   color: black;
   padding-top: 1.5%;
+  border-style: ridge;
 }
 
 div.mis_resenas{
@@ -423,5 +429,86 @@ div.mis_resenas{
   width: 16%;
     background: #ffffff4a;
     border-radius: 14px;
-    color: black;
+    color: black
 }
+
+.series-favoritas div.edit_delete a.botedit:hover{
+list-style-type: none;
+text-decoration: none;
+background-color: seagreen;
+color: white;
+}
+
+.series-favoritas div.edit_delete a.botver:hover{
+  list-style-type: none;
+  text-decoration: none;
+  background-color:goldenrod ;
+  color: white;
+  }
+
+  .series-favoritas div.edit_delete form input:hover{
+  background-color: maroon;
+  color: white;
+  }
+
+
+  /* Pagina de Mejores resenas */
+
+  .series-favoritas div.ver-serie{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 4%;
+    margin-left: -23px;
+    padding-left: 3em;
+  }
+
+  .series-favoritas div.ver-serie a{
+    width: 16%;
+      background: #ffffff4a;
+      border-radius: 14px;
+      color: black
+  }
+
+  .series-favoritas div.ver-serie a.botver:hover{
+    list-style-type: none;
+    text-decoration: none;
+    background-color:goldenrod ;
+    color: white;
+    }
+
+     /* RESEÑAS  */
+
+ul.uk-navbar-nav li a.tituleres{
+  padding: 0;
+  color: black;
+  margin: 0;
+  margin-top: -26%;
+  font-family: PT Sans Narrow;
+text-transform: none;
+list-style-type: none;
+font-size: 26px;
+font-family: PT Sans Narrow;
+padding: 0;
+
+}
+
+ul.uk-navbar-nav li a.tituleres:hover{
+color: #ffac03;
+font-size: 1.1em;
+padding: 0;
+margin-top: -15%;
+font-family: PT Sans Narrow;
+text-transform: none;
+
+}
+
+ul li a.lasresenas{
+  font-size: 61%;
+  
+  }
+  ul li a.lasresenas:hover{
+  font-size: 91%;
+  color: #ffac03;
+  }
