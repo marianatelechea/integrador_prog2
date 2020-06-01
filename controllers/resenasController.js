@@ -93,50 +93,6 @@ module.exports = {
                 })
     },
 
-    // id_resena: (req, res) => {
-    //     let id_resena = req.query.id_resena
-    //     //return res.send(id_serie)
-    //     res.render('descripcion', {
-    //         id_resena: id_resena
-    //     })
-    // },
-
-    // listado: function(req, res){
-    //     db.Resena.findAll(req.body.texto_resena,{
-    //         include: [{association: "usuario"}]
-    //     })
-    //     .then(resenas => {
-    //         res.render("descripcion", {resenas:resenas})
-    //     })
-    //     .catch(error => {
-    //         return res.send (error);
-    //     })
-    // },
-
-    // listado: function(req, res){
-    //     db.Resena.findAll(req.body.texto_resena,{
-    //         include: [{association: "usuario"}]
-    //     })
-    //     .then(resenas => {
-    //         res.render("descripcion", {resenas:resenas})
-    //     })
-    //     .catch(error => {
-    //         return res.send (error);
-    //     })
-    // },
-            
-
-    // detalle: function(req, res){
-    //     db.Resena.findByPk(req.params.id,{
-    //         include: [{association: "usuario"}]
-    //     })
-    //     .then(unaResena => {
-    //         res.render("resenas", {unaResena:unaResena})
-    //     })
-    //     .catch(error => {
-    //         return res.send (error);
-    //     })
-    // }
 
     //////////////////////////////   MIS RESEÑAS //////////////////////////////
 
@@ -183,6 +139,62 @@ module.exports = {
         })
     },
 
+    //////////////////////////////   Editar  //////////////////////////////
+    
+    editar: function(req, res){
+        db.Usuario.findAll()
+        .then((editar) => {
+
+            db.Resena.findByPk(req.params.id)
+            .then((editar) => {
+                res.render("editarSerie", {
+                    editar: editar,
+                })
+            })
+
+        })
+    },
+
+    actualizar: function(req, res) {
+        let resena = {
+            texto_resena: req.body.texto_resena,
+            puntaje_serie: req.body.puntaje_serie
+        }
+
+        db.Resena.update(resena, {
+            where: {
+                id_resena: req.params.id
+            }
+        })
+        .then((resultado) => {
+            res.redirect('/series/resenas/')
+        })
+    },
+
+    porEliminar: function(req, res){
+        db.Usuario.findAll()
+        .then((borrar) => {
+
+            db.Resena.findByPk(req.params.id)
+            .then((borrar) => {
+                res.render("borrarSerie", {
+                    borrar: borrar,
+                })
+            })
+
+        })
+    },
+
+    delete: function(req,res) {
+        db.Resena.destroy({
+            where: {
+                id_resena: req.params.id
+            }
+        })
+        .then((resultado) => {
+            res.redirect('/series/resenas/')
+        })
+    }
 };
 
 

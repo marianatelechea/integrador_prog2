@@ -376,7 +376,43 @@
     text-decoration: none;
     text-align: center;
   }
-  
- 
 
+
+
+  /* EDITAR SERIES */
+
+div.score label{
+  font-size: 1.5em;
+  font-family: PT Sans Narrow;
+  padding: 13px;
+  width: 18em;
+  border-radius: 41px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: floralwhite;
+  border: 0;
+  font-family: PT Sans Narrow;
+  font-size: 19px;
+  text-decoration: none;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+div.score{
+  width: 41%;
+    /* align-items: center; */
+    /* justify-content: center; */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.score div input{
+  margin-bottom: 47px;
+  width: 31em;
+}
+ 
+div.contenedor button:hover{
+  background: black;
+}
   

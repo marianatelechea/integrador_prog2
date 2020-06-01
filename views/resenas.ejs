@@ -66,9 +66,9 @@
           Id Serie: <%=unUser.resenas[i].id_serie%> <br><%=unUser.resenas[i].texto_resena%> <br>Score: <%=unUser.resenas[i].puntaje_serie%> 
 
           <div class="edit_delete">
-            <a href="/series/resenas/editar/<%=unUser.resenas[i].id_resena%>">Editar</a>
-            <a href="/series/detalle?id=<%=unUser.resenas[i].id_serie%>"</a>Ver Serie</a>
-            <form action="/series/resenas/delete/<%=unUser.id_usuario%>" method="POST">
+            <a href="/series/resenas/editar/<%=unUser.resenas[i].id_resena%>" class="botedit">Editar</a>
+            <a href="/series/detalle?id=<%=unUser.resenas[i].id_serie%>" class="botver">Ver Serie</a>
+            <form action="/series/resenas/porEliminar/<%=unUser.resenas[i].id_resena%>" method="POST">
               <input type="submit" value="Borrar">
             </form>
           </div>

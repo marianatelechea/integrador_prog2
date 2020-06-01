@@ -22,7 +22,7 @@ module.exports = {
     busqueda: function(req, res) {
         let filter = {};
         let q = req.query.email;
-        let b = req.body.nombre_usuario;
+        let b = req.query.nombre_usuario;
 
         if (q){
             filter = {
@@ -33,7 +33,7 @@ module.exports = {
         } else if(b){
             filter = {
                 where: [ {
-                    email: {[OP.like]: "%" + req.body.nombre_usuario +  "%"}
+                    email: {[OP.like]: "%" + req.query.nombre_usuario +  "%"}
                 } ]
             };
         }

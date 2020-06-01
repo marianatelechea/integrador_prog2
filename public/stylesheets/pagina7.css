@@ -394,6 +394,7 @@ ul.resenas li{
   list-style-type: none;
   color: black;
   padding-top: 1.5%;
+  border-style: ridge;
 }
 
 div.mis_resenas{
@@ -423,5 +424,25 @@ div.mis_resenas{
   width: 16%;
     background: #ffffff4a;
     border-radius: 14px;
-    color: black;
+    color: black
 }
+
+.series-favoritas div.edit_delete a.botedit:hover{
+list-style-type: none;
+text-decoration: none;
+background-color: seagreen;
+color: white;
+}
+
+.series-favoritas div.edit_delete a.botver:hover{
+  list-style-type: none;
+  text-decoration: none;
+  background-color:goldenrod ;
+  color: white;
+  }
+
+  .series-favoritas div.edit_delete form input:hover{
+  background-color: maroon;
+  color: white;
+  }
+
