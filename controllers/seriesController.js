@@ -126,6 +126,11 @@ module.exports = {
 
     pagina8:(req, res) => {  return res.render('login');},
     pagina11:(req, res) => {  return res.render('resenas');},
+
+    mejores:(req, res) => {  return res.render('mejoresRes');},
+    peores:(req, res) => {  return res.render('peoresRes');},
+    recientes:(req, res) => {  return res.render('recientessRes');},
+
     
 
 // ----------------------------------------------------------------------- FIN RESEÑA

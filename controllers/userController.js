@@ -32,7 +32,8 @@ module.exports = {
         .catch(error => {
             return res.send (error);
         })
-    }
+    },
 
+    //
 
 };
