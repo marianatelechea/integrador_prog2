@@ -655,3 +655,27 @@ ul li a.lasresenas{
   font-size: 91%;
   color: #ffac03;
   }
+
+#reseñasDetalle{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2%;
+
+  }
+
+#reseñasDetalle li{
+  width: 45%;
+  background: antiquewhite;
+  margin: 2%;
+  list-style-type: none;
+  color: black;
+  padding-top: 1.5%;
+  border-style: ridge;
+  border-color: slategray;
+  display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    font-family: PT Sans Narrow;
+    font-size: 1.3em;
+}

@@ -13,6 +13,17 @@ let passEncriptada = bcrypt.hashSync('root', 10);
 
 // ----------------------------------------- FIN DE ENCRIPTACIÓN
 
+// ERRORES ----------------------------------------------------
+
+// function validarErrores(error){
+//     let errores = [];
+//     if(error.)
+
+// }
+
+// --------------------------------------------------- FIN ERRORES
+
+
 
 module.exports = {
 
@@ -46,6 +57,7 @@ module.exports = {
                     .then(resultado=>{
                             if(resultado  == null ){
                                 console.log("El E-mail NO esta en la base de datos");
+                                res.redirect("/series/registro")
                             } else{
                                 if (bcrypt.compareSync(req.body.contraseña, resultado.contraseña)) {
 
@@ -69,6 +81,9 @@ module.exports = {
                                     res.send("Falló la validación")                   
                                 }
                             }
+                    })
+                    .catch(error => {
+                        return res.send (error);
                     })             
                 })
 
@@ -244,7 +259,7 @@ module.exports = {
                 .then(resultado => {
                         console.log(resultado); 
                         if (resultado  == null){
-                            res.send("El E-mail NO esta en la base de datos")
+                            res.redirect("El E-mail NO esta en la base de datos")
                             console.log("El E-mail NO esta en la base de datos");
                         }else { 
                             if (bcrypt.compareSync(req.body.contraseña, resultado.contraseña)) {

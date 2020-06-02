@@ -188,8 +188,10 @@ div.alert-light{
 }
 
 .series-favoritas h2{
-  color: gainsboro;
   font-size: 15px;
+  font-family: "PT Sans Narrow";
+  font-size: 161%;
+  color: unset;
 }
 
 ul.listado-favoritas{
