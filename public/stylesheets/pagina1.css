@@ -55,6 +55,7 @@ body {
   font-size: 26px;
   font-family: PT Sans Narrow;
   padding: 0;
+  color: black;
 }
 
 .li-menu a {
@@ -62,6 +63,8 @@ body {
   color: black;
       padding: 0;
 }
+
+
 
 .li-menu a:hover {
   color: #ffac03;
@@ -438,7 +441,6 @@ footer h3 {
 
     #menu-mobile {
     margin: 0 auto;
-    text-align: center;
     box-sizing: border-box;
     }
 
@@ -460,14 +462,19 @@ footer h3 {
     .noticias{
     width: 100%;
     }
+
+    ul.uk-navbar-nav li a.tituleres{
+      color: gray;
+    }
 }
 
 
 /* MEDIA QUERY PARA SMARTPHONE */
 
-#menu-mobile{
+/* #menu-mobile{
   display: block;
-}
+} */
+
     @media (min-width: 0px) and (max-width: 450px) {
 
       body {
@@ -512,7 +519,6 @@ footer h3 {
 
     #menu-mobile {
       margin: 0 auto;
-      text-align: center;
       box-sizing: border-box;
     }
 
@@ -527,6 +533,10 @@ footer h3 {
 
     }
 
+    .uk-dropdown{
+      min-width: 159px;
+    }
+
     .ul-menu{
       display: none;
     }
@@ -534,6 +544,8 @@ footer h3 {
     .noticias{
       width: 100%;
     }
+ 
+  }
 
     form input.boton {
       top: -8em;
@@ -544,7 +556,7 @@ footer h3 {
       top: -8em;
 
     }
-
+  
 
 /* PROGRAMACION II */
 
@@ -559,7 +571,6 @@ footer h3 {
   }
 
 
-    }
 
 
     /* RESEÑAS  */

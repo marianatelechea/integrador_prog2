@@ -306,84 +306,170 @@ footer h3 {
   font-family: PT Sans Narrow;
 }
 
-#menu-mobile{
+#menu-mobile {
   display: none;
 }
 
 
-@media (min-width: 0px) and (max-width: 450px) {
 
+/* MEDIA QUERY */
+
+
+#menu-desplegable{
+  display: none;
+}
+
+
+/* MEDIA QUERY PARA TABLET */
+
+@media (min-width: 451px) and (max-width: 750px) {
   #menu-mobile{
-    display: block;
-  }
+  display: block;
+}
+    body {
+        font-family: Questrial;
+        font-size: 1em;
+        width: 116vh;
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+    }
 
-  body {
-      font-family: Questrial;
-      font-size: 1em;
-      width: 70vh;
+    #lostop5{
+    display: flex;
+    flex-direction: column;
+    }
+
+    .top-rated{
+    width: 100%
+    }
+
+    .watch-now{
+      width: 100%
+    }
+
+    .ul-logo {
+    padding: 0;
+    }
+
+    .li-logo a img{
+    width: 33vh;
+    }
+
+    article.article-top5 a {
+    top: auto;
+    left: 14%;
+    position: relative;
+    margin: 2%;
+    border: solid 10px #F7C004;
+    }
+
+    #menu-mobile {
+    margin: 0 auto;
+    box-sizing: border-box;
+    }
+
+    #menu-desplegable {
+      background-color: transparent;
+      color: #333;
+      border-color: #F7C004;
+      border: 3px solid #F7C004;
+      width: 27%;
+      margin: 0 auto;
+      display: block;
+
+    }
+
+    .ul-menu{
+    display: none;
+    }
+
+    .noticias{
+    width: 100%;
+    }
+
+    ul.uk-navbar-nav li a.tituleres{
+      color: gray;
+    }
+}
+
+
+/* MEDIA QUERY PARA SMARTPHONE */
+
+#menu-mobile{
+  display: block;
+}
+    @media (min-width: 0px) and (max-width: 450px) {
+
+      body {
+          font-family: Questrial;
+          font-size: 1em;
+          width: 70vh;
+          display: flex;
+          flex-direction: column;
+          margin: 0 auto;
+      }
+
+      #lostop5{
+      width: 100%;
       display: flex;
       flex-direction: column;
+      }
+
+      .top-rated{
+      width: 100%
+      }
+
+      .watch-now{
+        width: 100%
+      }
+
+      .ul-logo {
+        padding: 0;
+      }
+
+      .li-logo a img{
+        width: 33vh;
+      }
+
+    article.article-top5 a {
+    width: 47vh;
+    top: auto;
+    left: 14%;
+    position: relative;
+    margin: 2%;
+    border: solid 10px #F7C004;
+    }
+
+    #menu-mobile {
       margin: 0 auto;
+      box-sizing: border-box;
+    }
+
+    #menu-desplegable {
+        background-color: transparent;
+        color: #333;
+        border-color: #F7C004;
+        border: 3px solid #F7C004;
+        width: 27%;
+        margin: 0 auto;
+        display: block;
+
+    }
+
+    .uk-dropdown{
+      min-width: 159px;
+    }
+
+    .ul-menu{
+      display: none;
+    }
+
+    .noticias{
+      width: 100%;
+    }
+ 
   }
-
-  #lostop5{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  }
-
-  .top-rated{
-  width: 100%
-  }
-
-  .watch-now{
-    width: 100%
-  }
-
-.ul-logo {
-padding: 0;
-}
-
-.li-logo a img{
-width: 33vh;
-}
-
-article.article-top5 a {
-width: 47vh;
-top: auto;
-left: 14%;
-position: relative;
-margin: 2%;
-border: solid 10px #F7C004;
-}
-
-#menu-mobile {
-  margin: 0 auto;
-  text-align: center;
-  box-sizing: border-box;
-}
-
-#menu-desplegable {
-    background-color: transparent;
-    color: #333;
-    border-color: #F7C004;
-    border: 3px solid #F7C004;
-    width: 27%;
-    margin: 0 auto;
-    display: block;
-
-}
-
-.ul-menu{
-  display: none;
-}
-
-.noticias{
-  width: 100%;
-}
-
-}
-
 
 /* ----------------------------------------- PROGRAMACION 2 -------------------------------------------- */
 
