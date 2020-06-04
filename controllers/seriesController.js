@@ -19,7 +19,7 @@ module.exports = {
 
 // INICIO INGRESO -------------------------------------------------------------------------------------------------------------------------------------
     
-    ingreso:(req, res) => {return res.render('ingreso');},
+    ingreso:(req, res) => {return res.render('ingreso',{error:req.query.Error});},
 
     /* Ruta de verficiacion de Usuario */
 
@@ -37,7 +37,8 @@ module.exports = {
                 .then(resultado => {
                         console.log(resultado); // AQUÍ TENÉS AL USUARIO QUE ENCONTRASTE EN LA DB
                         if (resultado  == null){
-                            res.send("El E-mail NO esta en la base de datos")
+                            // res.send("El E-mail NO esta en la base de datos")
+                            res.redirect('/series/ingreso/' + '?Error=true')
                             console.log("El E-mail NO esta en la base de datos");
                         }else { 
                             // COMENTARIO DE JAVI - AQUÍ TODO QUEDA COMO LO TENÍAS
@@ -53,7 +54,8 @@ module.exports = {
                                 res.render("inicio")                    
                             } else {  
                                 console.log("Te equivocaste BRO"); 
-                                res.send("Falló la validación")  
+                                // res.send("Falló la validación")  
+                                res.redirect('/series/ingreso/' + '?Error=true')
                             
                         }
                         }
@@ -127,7 +129,7 @@ module.exports = {
 
 // INICIO RESEÑA -------------------------------------------------------------------
 
-    pagina8:(req, res) => {  return res.render('login');},
+    pagina8:(req, res) => {  return res.render('login',{error:req.query.Error});},
     pagina11:(req, res) => {  return res.render('resenas');},
 
     mejores:(req, res) => {  return res.render('mejoresRes');},

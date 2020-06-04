@@ -159,7 +159,8 @@ module.exports = {
                 .then(resultado => {
                         console.log(resultado); 
                         if (resultado  == null){
-                            res.send("El E-mail NO esta en la base de datos")
+                            // res.send("El E-mail NO esta en la base de datos")
+                            res.redirect('/series/resenas/' +  '?Error=true') 
                             console.log("El E-mail NO esta en la base de datos");
                         }else { 
                             if (bcrypt.compareSync(req.body.contraseña, resultado.contraseña)) {
@@ -168,7 +169,8 @@ module.exports = {
                                 res.redirect('/series/resenas/' + resultado.id_usuario)
                             } else {  
                                 console.log("Te equivocaste BRO"); 
-                                res.send("Falló la validación")  
+                                // res.send("Falló la validación")  
+                                res.redirect('/series/resenas/' +  '?Error=true') 
                             
                         }
                         }
@@ -193,7 +195,7 @@ module.exports = {
         })
     },
 
-    //////////////////////////////   Editar resenñas del DB  //////////////////////////////
+    //////////////////////////////   Editar reseñas del DB  //////////////////////////////
     
     editar: function(req, res){
         db.Usuario.findAll()
@@ -203,6 +205,7 @@ module.exports = {
             .then((editar) => {
                 res.render("editarSerie", {
                     editar: editar,
+                    error: req.query.Error
                 })
             })
 
@@ -259,7 +262,8 @@ module.exports = {
                 .then(resultado => {
                         console.log(resultado); 
                         if (resultado  == null){
-                            res.redirect("El E-mail NO esta en la base de datos")
+                            // res.send("El E-mail NO esta en la base de datos")
+                            res.redirect('/series/resenas/editar/' + req.params.id + '?Error=true')
                             console.log("El E-mail NO esta en la base de datos");
                         }else { 
                             if (bcrypt.compareSync(req.body.contraseña, resultado.contraseña)) {
@@ -278,7 +282,8 @@ module.exports = {
                                 })
                             } else {  
                                 console.log("Te equivocaste BRO"); 
-                                res.send("Falló la validación")  
+                                // res.send("Falló la validación")
+                                res.redirect('/series/resenas/editar/' + req.params.id + '?Error=true')  
                             
                         }
                         }
@@ -302,6 +307,7 @@ module.exports = {
             .then((borrar) => {
                 res.render("borrarSerie", {
                     borrar: borrar,
+                    error: req.query.Error
                 })
             })
 
@@ -347,7 +353,8 @@ module.exports = {
                 .then(resultado => {
                         console.log(resultado); 
                         if (resultado  == null){
-                            res.send("El E-mail NO esta en la base de dato")
+                            // res.send("El E-mail NO esta en la base de dato")
+                            res.redirect('/series/resenas/porEliminar/' + req.params.id + '?Error=true')
                             console.log("El E-mail NO esta en la base de datos");
                         }else { 
                             if (bcrypt.compareSync(req.body.contraseña, resultado.contraseña)) {
@@ -360,7 +367,7 @@ module.exports = {
                                     res.redirect('/series/resenas/')
                                 })
                             } else {  
-                                res.redirect('/series/resenas/porEliminar/' + req.params.id)
+                                res.redirect('/series/resenas/porEliminar/' + req.params.id + '?Error=true')
                             
                         }
                         }
@@ -373,83 +380,6 @@ module.exports = {
     },
 
      //////////////////////////////   MEJOR - PEOR - RECIENTES => RESEÑAS //////////////////////////////
-
-    
-    // mejores: function(req, res) {
-    //     let filter = {};
-    //     let r = req.body.texto_resena;
-    //     // let q = req.body.puntaje_serie;
-
-    //     if (r){
-    //         filter = {
-    //             where: {
-    //                         texto_resena: {[OP.like]: '%' + r +  '%'},
-    //                         // puntaje_serie: {[OP.like]: [{repuntaje_serie:10}]}        
-    //                     },
-    //             order: [
-    //                 ['puntaje_serie', 'ASC'],
-    //             ]
-    //         }
-    //                 // resenas: {[OP.like]: "%" + req.body.texto_resena +  "%"},
-    //                 // puntaje_serie: {[OP.like]: [{puntaje_serie:10},{puntaje_serie:9},{puntaje_serie:8},{puntaje_serie:7},{puntaje_serie:6},{puntaje_serie:5}]}
-               
-    //     } //else if(q){
-    //     //     filter = {
-    //     //         where: {
-    //     //                     puntaje_serie: {[OP.like]: [{puntaje_serie:10}]}        
-    //     //                 }
-    //     //     }
-    //     // }
-
-
-    //     db.Resena.findAll(filter,{
-    //         include: [{association: "usuario"}]
-    //     })
-    //             .then((resenas) => {
-    //                 if(resenas != "") {
-    //                     // res.json(resenas)
-    //                     res.render('mejoresRes', {
-    //                         resenas: resenas
-    //                     })
-    //                 } else {
-    //                     //res.send("No encuentro")
-    //                     res.send('Not found')
-    //                 }
-    //                 // console.log(resenas)
-                   
-    //             })
-    // }
-
-    // mejores: (req, res) => {
-    //     db.Resena.findAll( 
-    //         { 
-    //             where: {
-    //                         // [OP.and]: {
-    //                        texto_resena: { [OP.like]: req.body.texto_resena  },
-    //                        puntaje_serie: {
-    //                         [OP.between]: [5, 10],         
-    //                       }
-    //                                 // [OP.eq]: [{puntaje_serie:10},{puntaje_serie:9},{puntaje_serie:8},{puntaje_serie:7},{puntaje_serie:6},{puntaje_serie:5}]
-    //                         // }
-    //                   }
-    //         },
-    //         { 
-    //             include: [{association: "usuario"}]
-    //         }
-    //     )
-    //     .then(resenas => {
-    //         if(resenas != "") {
-    //             res.json(resenas)
-    //             // res.render("descripcion", {resenas:resenas})
-    //         } else {
-    //             //res.send("No encuentro")
-    //             res.send('Not found')
-    //         }
-    //     })
-    //     .catch(error => {
-    //         return res.send (error);
-    //     })
-    // },
 
     mejores: (req, res) =>{
         db.Resena.findAll(req.body.texto_resena,{

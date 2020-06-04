@@ -149,3 +149,24 @@ form {
   margin: 0%;
 }
 
+/* Aletas */
+
+.contenedor form div.alerta{
+  display: flex;
+  font-family: PT Sans Narrow;
+  color: linen;
+  width: 37%;
+  justify-content: center;
+  background-color: rgba(205, 92, 92,0.5);
+  height: 2em;
+  align-items: center;
+  border-radius: 41px;
+}
+
+.contenedor form div.alerta p{
+  margin-right: 5%;
+}
+
+.contenedor div.alerta a:hover{
+  background-color: transparent;
+}

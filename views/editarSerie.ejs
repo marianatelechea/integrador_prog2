@@ -69,6 +69,12 @@
     <div class="contenedor">
       <h3>Editar Reseña</h3>
       <form action="/series/resenas/<%=editar.id_resena%>" method="POST">
+        <% if (error) { %>
+          <div class="uk-alert-danger alerta" uk-alert>
+            <p> Email o contraseña incorrecta, intente de nuevo.</p>
+            <a class="uk-alert-close" uk-close></a>
+        </div>
+        <% } %>
         <label class = "textos">Email del usuario:</label>
         <input class = "input_ingreso" type="email" name="email" required>
         <br>
