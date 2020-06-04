@@ -16,6 +16,12 @@
      <!-- En los "name" del input poner siempre el nombre de las columnos del DB para ordenarnos mejor -->
 
       <form action="/series/guardar" method="POST">
+        <% if (error) { %>
+          <div class="uk-alert-danger alerta" uk-alert>
+            <p> El email ya existe, porfavor ingrese otro.</p>
+            <a class="uk-alert-close" uk-close></a>
+        </div>
+        <% } %>
         <label class = "text_regis">Nombre del usuario:</label>
         <input class = "input_ingreso" type="text" name="nombre_usuario" required>
         <br>

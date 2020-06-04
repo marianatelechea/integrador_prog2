@@ -82,27 +82,42 @@ module.exports = {
     //    })   
    // },
 
-   registro:(req, res) => {return res.render('registro');},
+   registro:(req, res) => {return res.render('registro', {error:req.query.Error});},
 
     /* Ruta de almacenamiento de datos de los Usuarios */
 
     // -------- PROBANDO EL TEMA DE REGISTRO -------------
     guardado:(req, res) => {
-        db.Usuario
-            .create({
-                nombre_usuario: req.body.nombre_usuario,
-                apellido_usuario: req.body.apellido_usuario,
-                email: req.body.email,
-            //  id_usuario: req.body.Usuario,
-                contraseña: bcrypt.hashSync(req.body.contraseña),
-                fecha_nacimiento: req.body.fecha_nacimiento,
-            })
-            .then(usuarioGuardado => {
-                //return res.send(usuarioGuardado);
-                return res.render('ingreso');
-            })
-            .catch(error => {
-                return res.send (error);
+        moduloLogin.chequearUsuario(req.body.email)
+            .then(resultado => {
+                moduloLogin.validar(req.body.email, {
+                    include: [{association: "resenas"}]
+                } )
+                .then(resultado => {
+                        console.log(resultado); 
+                        if (resultado  != null){
+                            // res.send("El E-mail ya existe en la base de datos")
+                            res.redirect('/series/registro/' +  '?Error=true') 
+                            console.log("El E-mail NO esta en la base de datos");
+                        }else { 
+                            db.Usuario
+                                .create({
+                                    nombre_usuario: req.body.nombre_usuario,
+                                    apellido_usuario: req.body.apellido_usuario,
+                                    email: req.body.email,
+                                //  id_usuario: req.body.Usuario,
+                                    contraseña: bcrypt.hashSync(req.body.contraseña),
+                                    fecha_nacimiento: req.body.fecha_nacimiento,
+                                })
+                                .then(usuarioGuardado => {
+                                    //return res.send(usuarioGuardado);
+                                    return res.redirect('/series/ingreso');
+                                })
+                                .catch(error => {
+                                    return res.send (error);
+                                })
+                        }
+                })
             })
     }, 
     // -------------------------------------------------
