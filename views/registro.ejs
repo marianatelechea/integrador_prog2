@@ -23,11 +23,11 @@
         </div>
         <% } %>
         <label class = "text_regis">Nombre del usuario:</label>
-        <input class = "input_ingreso" type="text" name="nombre_usuario" required>
+        <input class = "input_ingreso" type="text" name="nombre_usuario" required minlength="3">
         <br>
 
         <label class = "text_regis">Apellido del usuario:</label>
-        <input class = "input_ingreso" type="text" name="apellido_usuario" required>
+        <input class = "input_ingreso" type="text" name="apellido_usuario" title="El apellido debe contar con al menos 3 caracteres" required pattern=".{3,}">
         <br>
 
         <label class = "text_regis">Email:</label>
