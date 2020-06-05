@@ -108,6 +108,7 @@ module.exports = {
                                 //  id_usuario: req.body.Usuario,
                                     contraseña: bcrypt.hashSync(req.body.contraseña),
                                     fecha_nacimiento: req.body.fecha_nacimiento,
+                                    generos_fav: req.body.generos_fav
                                 })
                                 .then(usuarioGuardado => {
                                     //return res.send(usuarioGuardado);

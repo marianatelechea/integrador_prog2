@@ -22,6 +22,9 @@ module.exports = function (sequelize, dataTypes) {
         },
         fecha_nacimiento: {
             type: dataTypes.DATE
+        },
+        generos_fav: {
+            type: dataTypes.INTEGER
         }
 
     }

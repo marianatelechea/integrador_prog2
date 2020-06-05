@@ -6,7 +6,7 @@ fetch("https://api.themoviedb.org/3/genre/tv/list?api_key=65eadee9d6749b2ab92f01
   .then(function(data) {
 
     for (var i = 0; i < data.genres.length; i++) {
-       document.querySelector("#contenedor-genero").innerHTML += "<option value='"+data.genres[i].id+"'>" + data.genres[i].name + "</option>";
+       document.querySelector("#contenedor-genero").innerHTML += "<option value='"+data.genres[i].name+"'>" + data.genres[i].name + "</option>";
     }
   })
 }
