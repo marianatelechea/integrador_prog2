@@ -745,24 +745,34 @@ ul li a.lasresenas{
     display: flex;
     flex-wrap: wrap;
     padding: 2%;
+    /* justify-content: center; */
+    justify-content: unset;
 
   }
 
 #reseñasDetalle li{
-  width: 45%;
+  /* width: 45%; */
+  width: 100%;
   background: antiquewhite;
   margin: 2%;
   list-style-type: none;
   color: black;
   padding-top: 1.5%;
-  border-style: ridge;
-  border-color: slategray;
+  border-style: double;
+  border-color: whitesmoke;
   display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    font-family: PT Sans Narrow;
-    font-size: 1.3em;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  /* font-family: PT Sans Narrow; */
+  /* font-size: 1.3em; */
+  text-align: center;
+  background-image: url("/images/PAGINA5/papel.png");
+  font: status-bar;
+}
+
+#reseñasDetalle ul{
+  width: 100%;
 }
 
  /* Aletas */
