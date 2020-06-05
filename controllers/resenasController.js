@@ -39,7 +39,7 @@ module.exports = {
                 res.render('descripcion', {
                     id_serie: id_serie,
                     resenas:resenas,
-                    error: req.query.Error
+                    error: req.query.Error,
                 })
                 // res.render("descripcion", {resenas:resenas})
         })
@@ -70,7 +70,7 @@ module.exports = {
                                     })
                                     .then(resenaGuardada =>{
                                         console.log(resenaGuardada)     
-                                        return res.send(resenaGuardada)  
+                                        res.redirect("/series/detalle?id=" + req.body.id_serie) 
                          
                                     })
                                     .catch(error => {
