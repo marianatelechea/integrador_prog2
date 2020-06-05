@@ -91,6 +91,7 @@
     <ul class="resenas">
       <% for (let i = 0; i < resenas.length; i++) { %>
         <li>
+          <%=resenas[i].usuario.nombre_usuario%> <%=resenas[i].usuario.apellido_usuario%> <br>
           Id Serie: <%=resenas[i].id_serie%> <br><%=resenas[i].texto_resena%> <br>Score: <%=resenas[i].puntaje_serie%> 
 
           <div class="ver-serie">

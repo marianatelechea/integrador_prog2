@@ -255,7 +255,8 @@ module.exports = {
                 },
                 order: [
                     ['puntaje_serie', 'DESC']
-                ]
+                ],
+                    include: [{association: "usuario"}]
             })
             .then(resenas =>{
                 //res.json(resenas)
@@ -285,7 +286,8 @@ module.exports = {
                 },
                 order: [
                     ['puntaje_serie', 'DESC']
-                ]
+                ],
+                include: [{association: "usuario"}]
             })
             .then(resenas =>{
                 //res.json(resenas)
@@ -309,7 +311,8 @@ module.exports = {
             db.Resena.findAll({
                 order: [
                     ['fecha_actualizacion', 'DESC']
-                ]
+                ],
+                include: [{association: "usuario"}]
             })
             .then(resenas =>{
                 //res.json(resenas)               
