@@ -104,7 +104,7 @@ form.buscador input.texto{
   border: 0;
   border-bottom: 1px solid #aba9a9;
   position: absolute;
-  top: -8em;
+  top: -11em;
   right: 3em;
   text-align: center;
   font-family: PT Sans Narrow;
@@ -112,7 +112,7 @@ form.buscador input.texto{
 
 form input.boton {
   position: absolute;
-  top: -8em;
+  top: -11em;
   right: 3em;
 }
 
