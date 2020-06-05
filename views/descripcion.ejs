@@ -80,7 +80,15 @@
       </div>
     </header>
 
+
     <section id="detalle-serie">
+      <% if (error) { %>
+        <div class="uk-alert-danger alerta2" uk-alert>
+          <p> Toque "Agregar Reseña" para ver su error. Gracias!</p>
+          <a class="uk-alert-close" uk-close></a>
+      </div>
+      <% } %>
+    
       <ul class="detalle-serie">
 
       </ul>
@@ -101,6 +109,7 @@
   
 <!-- -------------------------------------- PROGRAMACION II --------------------------------------------------------- --> 
 
+
         <!-- Armado de las reseñas -->
 
   <br>
@@ -108,7 +117,7 @@
     <a class="uk-button uk-button-default" href="#modal-center2" uk-toggle>Ver Reseñas</a>
         
         <!-- Insertar Reseñas -->
-    <a class="uk-button uk-button-default" href="#modal-center3" uk-toggle>Agregar Reseña</a>
+    <a class="uk-button uk-button-default" href="#modal-center3" uk-toggle >Agregar Reseña</a>
 
       <!-- Diseños Armado -->
 
@@ -139,15 +148,22 @@
 
       <!-- Diseños Insert -->
 
-      <div id="modal-center3" class="uk-flex-top" uk-modal>
+   
+
+      <div id="modal-center3" class="uk-flex-top contenedor" uk-modal>
         <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical"  >
           <div "uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider class="img-reco">
     
         <ul class="uk-slider-items ">
             <!-- -------- // Aca codigo de formulario con el for -------- -->
-
         
             <form action="/series/guardado_resena" method="POST">
+              <% if (error) { %>
+                <div class="uk-alert-danger alerta" uk-alert>
+                  <p> Email o contraseña incorrecta, intente de nuevo.</p>
+                  <a class="uk-alert-close" uk-close></a>
+              </div>
+              <% } %>
            
               <input type="hidden" name="id_serie" value="<%=id_serie%>">
               <div>

@@ -602,6 +602,7 @@ margin-left: 32%;
 #modal-center3 div.img-reco form {
   text-align: center;
   font-size: small;
+  width: 100%;
 }
 
 label.no_hover:hover{
@@ -627,6 +628,9 @@ font-size: 1.5em;
   padding: 2%;
   color: white;
   font-family: PT Sans Narrow;
+  height: 3em;
+  border-radius: 41px;
+  text-align: center;
 }
 
 #modal-center3 div.img-reco form div textarea{
@@ -759,4 +763,37 @@ ul li a.lasresenas{
     justify-content: center;
     font-family: PT Sans Narrow;
     font-size: 1.3em;
+}
+
+ /* Aletas */
+
+ .contenedor form div.alerta{
+  display: flex;
+  flex-wrap: wrap;
+  width: 86%;
+  justify-content: center;
+  background-color: rgba(205, 92, 92,0.5);
+  height: 4em;
+  align-items: center;
+  border-radius: 41px;
+  font-family: PT Sans Narrow;
+  color: linen;
+}
+
+.contenedor form div.alerta p{
+  margin: 0;
+}
+
+.contenedor div.alerta a:hover{
+  background-color: transparent;
+}
+
+div.alerta2{
+  background-color: rgba(205, 92, 92,0.9);
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3em;
 }

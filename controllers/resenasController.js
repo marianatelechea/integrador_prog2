@@ -38,7 +38,8 @@ module.exports = {
                 // res.send(resenas)
                 res.render('descripcion', {
                     id_serie: id_serie,
-                    resenas:resenas
+                    resenas:resenas,
+                    error: req.query.Error
                 })
                 // res.render("descripcion", {resenas:resenas})
         })
@@ -57,7 +58,7 @@ module.exports = {
                     .then(resultado=>{
                             if(resultado  == null ){
                                 console.log("El E-mail NO esta en la base de datos");
-                                res.redirect("/series/registro")
+                                res.redirect('/series/registro') 
                             } else{
                                 if (bcrypt.compareSync(req.body.contraseña, resultado.contraseña)) {
 
@@ -78,7 +79,7 @@ module.exports = {
 
                                 } else {  
                                     console.log("Te equivocaste BRO"); 
-                                    res.send("Falló la validación")                   
+                                    res.redirect("/series/detalle?id=" + req.body.id_serie + "&Error=true")               
                                 }
                             }
                     })
