@@ -13,16 +13,6 @@ let passEncriptada = bcrypt.hashSync('root', 10);
 
 // ----------------------------------------- FIN DE ENCRIPTACIÓN
 
-// ERRORES ----------------------------------------------------
-
-// function validarErrores(error){
-//     let errores = [];
-//     if(error.)
-
-// }
-
-// --------------------------------------------------- FIN ERRORES
-
 
 
 module.exports = {
@@ -38,10 +28,9 @@ module.exports = {
                 // res.send(resenas)
                 res.render('descripcion', {
                     id_serie: id_serie,
-                    resenas:resenas,
+                    resenas:resenas, // Aca es donde aparece el LISTADO DE RESEÑAS.
                     error: req.query.Error,
                 })
-                // res.render("descripcion", {resenas:resenas})
         })
         .catch(error => {
             return res.send (error);
@@ -90,66 +79,7 @@ module.exports = {
 
     },
 
-    //////////////////////////////   LISTADO DE RESEÑAS //////////////////////////////
-
-    // listado: (req, res) => {
-        
-    // },
-
-     //////// Probado listado /////////
-
-    // listado: function(req, res){
-    //     db.Usuario.findAll()
-    //     .then((resenas) => {
-
-    //         db.Resena.findByPk(req.query.id,{
-    //             include: [{association: "usuario"}]
-    //         })
-    //         .then((resenas) => {
-    //             res.json(resenas)
-    //             // res.render("descripcion", {
-    //             //     resenas: resenas,
-    //             // })
-    //         })
-
-    //     })
-    // },
-
-  
-
-    // listado: function(req, res) {
-    //     let filter = {};
-    //     let r = req.body.texto_resena;
-
-    //     if (r){
-    //         filter = {
-    //             where: [ {
-    //                 resenas: {[OP.like]: "%" + req.body.texto_resena +  "%"}
-    //             } ]
-    //         };
-    //     } 
-
-    //     db.Resena.findAll(filter,{
-    //         include: [{association: "usuario"}]
-    //     })
-    //             .then((resenas) => {
-    //                 if(resenas != "") {
-    //                     //res.json(usuarios)
-    //                     return('descripcion', {
-    //                         resenas: resenas
-    //                     })
-    //                 } else {
-    //                     //res.send("No encuentro")
-    //                     res.send('Not found')
-    //                 }
-    //                 // console.log(resenas)
-                   
-    //             })
-    // },
-
-  
-
-    //////////////////////////////   MIS RESEÑAS //////////////////////////////
+//////////////////////////////   MIS RESEÑAS //////////////////////////////
 
     validar: (req, res) => { 
         moduloLogin.chequearUsuario(req.body.email)
@@ -213,47 +143,6 @@ module.exports = {
         })
     },
 
-    // actualizar: function(req, res) {
-    //     moduloLogin.validar(req.body.email, req.params.id)
-    //     let resena = {
-    //         texto_resena: req.body.texto_resena,
-    //         puntaje_serie: req.body.puntaje_serie
-    //     }
-
-    //     db.Resena.update(resena, {
-    //         where: {
-    //             id_resena: req.params.id
-    //         }
-    //     })
-    //     .then((resultado) => {
-    //         res.redirect('/series/resenas/')
-    //     })
-    // },
-
-    // actualizar: function(req,res) {
-    //     moduloLogin.validar(req.body.email, req.params.id)
-    //     .then(resultado => {
-            
-    //         if(resultado != null ){
-    //             let resena = {
-    //                 texto_resena: req.body.texto_resena,
-    //                 puntaje_serie: req.body.puntaje_serie
-    //             }
-        
-    //             db.Resena.update(resena, {
-    //                 where: {
-    //                     id_resena: req.params.id
-    //                 }
-    //             })
-    //             .then((resultado) => {
-    //                 res.redirect('/series/resenas/')
-    //             })
-    //         } else {
-    //         res.redirect('/series/resenas/')
-    //         }
-    //     })
-    // },
-
     actualizar: (req, res) => { 
         moduloLogin.chequearUsuario(req.body.email)
             .then(resultado => {
@@ -298,7 +187,7 @@ module.exports = {
     
 
 
-    //////////////////// Elimiar resenas del DB ////////////////////
+//////////////////// Elimiar resenas del DB ////////////////////
 
     porEliminar: function(req, res){
         db.Usuario.findAll()
@@ -315,36 +204,6 @@ module.exports = {
         })
     },
 
-    // delete: function(req,res) {
-    //     db.Resena.destroy({
-    //         where: {
-    //             id_resena: req.params.id
-    //         }
-    //     })
-    //     .then((resultado) => {
-    //         res.redirect('/series/resenas/')
-    //     })
-    // },
-
-
-    // delete: function(req,res) {
-    //     moduloLogin.validar(req.body.email, req.params.id)
-    //     .then(resultado => {
-            
-    //         if(resultado != null ){
-    //             db.Resena.destroy({
-    //                 where: {
-    //                     id_resena: req.params.id
-    //                 }
-    //             })
-    //             .then((resultado) => {
-    //                 res.redirect('/series/resenas/')
-    //             })
-    //         } else {
-    //         res.redirect('/series/resenas/porEliminar/' + req.params.id)
-    //         }
-    //     })
-    // },
     delete: (req, res) => { 
         moduloLogin.chequearUsuario(req.body.email)
             .then(resultado => {
@@ -380,7 +239,7 @@ module.exports = {
             })
     },
 
-     //////////////////////////////   MEJOR - PEOR - RECIENTES => RESEÑAS //////////////////////////////
+//////////////////////////////   MEJOR - PEOR - RECIENTES => RESEÑAS //////////////////////////////
 
     mejores: (req, res) =>{
         db.Resena.findAll(req.body.texto_resena,{

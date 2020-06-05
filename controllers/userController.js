@@ -13,15 +13,6 @@ let passEncriptada = bcrypt.hashSync('root', 10);
 
 module.exports = {
 
-    // name: (req, res) => {
-    //     let name = data.genres[i].name
-    //     //return res.send(id_serie)
-    //     res.render('detalle_user', {
-    //         name: name
-    //     })
-    // },
-
-
     detalle: function(req, res){
         db.Usuario.findByPk(req.params.id_usuario,{
             include: [{association: "resenas"}]
@@ -33,7 +24,5 @@ module.exports = {
             return res.send (error);
         })
     },
-
-    //
 
 };

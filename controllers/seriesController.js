@@ -26,13 +26,6 @@ module.exports = {
     verificar: (req, res) => { 
         moduloLogin.chequearUsuario(req.body.email)
             .then(resultado => {
-                // COMENTARIO DE JAVI
-                /*
-                    EL MÉTODO validar TENÍA UN PEQUEÑO ERROR, AHÍ LO CORREGÍ, Y AHORA PARA VALIDAR SOLO NECESITÁS PASAR EL EMAIL DEL USUARIO QUE SE QUIERE LOGUEAR
-
-                    WARNING: tené en cuenta de hacer pruebas con usuarios nuevos, cuya contraseña en la DB sea algo así:
-                    $2a$10$BkDYfk22eEFrNZk5IwLt4.muS4vhuI4vGtGS.9sf8jSr8EjV34ltm
-                */ 
                 moduloLogin.validar(req.body.email)
                 .then(resultado => {
                         console.log(resultado); // AQUÍ TENÉS AL USUARIO QUE ENCONTRASTE EN LA DB
@@ -41,15 +34,9 @@ module.exports = {
                             res.redirect('/series/ingreso/' + '?Error=true')
                             console.log("El E-mail NO esta en la base de datos");
                         }else { 
-                            // COMENTARIO DE JAVI - AQUÍ TODO QUEDA COMO LO TENÍAS
-                            /*
-                                EL 1ER PARÁMETRO DE compareSync SERÁ LA CONTRASEÑA QUE EL USUARIO ESCRIBE AL MOMENTO DE LOGUEARSE
-                                EL 2DO PARÁMETRO SERÁ LA constraseña DEL USUARIO QUE ESTÁ EN LA DB
-                            */ 
-                            if (bcrypt.compareSync(req.body.contraseña, resultado.contraseña)) {
-                           //
-                           //console.log(bcrypt.compareSync(req.body.contraseña, resultado.passEncriptada));
-                           
+                            if (bcrypt.compareSync(req.body.contraseña, resultado.contraseña)) {  // Comparación de contraseñas
+                                // Primer parámetro: contraseña del usuario cuando se loguea
+                                // Segundo parámetro: contraseña del usuario en la DB
                                 console.log("JOYA");
                                 res.render("inicio")                    
                             } else {  
@@ -73,20 +60,10 @@ module.exports = {
 
 // INICIO REGISTRO ------------------------------------------------------------------------------------------------------------------------------------
 
-    //registro:(req, res) => { db.Usuario.findAll()
-    //    .then(usuarios => {
-    //        return res.render ("registro");
-    //    })
-    //    .catch (error =>{
-    //    return res.send (error);
-    //    })   
-   // },
-
    registro:(req, res) => {return res.render('registro', {error:req.query.Error});},
 
-    /* Ruta de almacenamiento de datos de los Usuarios */
+ /* Ruta de almacenamiento de datos de los Usuarios */
 
-    // -------- PROBANDO EL TEMA DE REGISTRO -------------
     guardado:(req, res) => {
         moduloLogin.chequearUsuario(req.body.email)
             .then(resultado => {
@@ -120,11 +97,7 @@ module.exports = {
                         }
                 })
             })
-    }, 
-    // -------------------------------------------------
-    
-
-       
+    },     
 
 // ---------------------------------------------------------------------------------------------------------------------------------- FIN REGISTRO
 
@@ -152,17 +125,13 @@ module.exports = {
     peores:(req, res) => {  return res.render('peoresRes');},
     recientes:(req, res) => {  return res.render('recientessRes');},
 
-    
-
 // ----------------------------------------------------------------------- FIN RESEÑA
 
     pagina9:(req, res) => {  return res.render('usuarios');},
 
     pagina10:(req, res) => {  return res.render('detalle_user');},
 
-    guardar:(req,res) => {
-        return res.send(req.body);
-    }
+    guardar:(req,res) => {  return res.send(req.body);  }
 
 
 };
