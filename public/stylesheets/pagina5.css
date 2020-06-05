@@ -746,7 +746,9 @@ ul li a.lasresenas{
     flex-wrap: wrap;
     padding: 2%;
     /* justify-content: center; */
-    justify-content: unset;
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 4%;
 
   }
 
