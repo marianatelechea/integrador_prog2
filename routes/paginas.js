@@ -81,9 +81,10 @@ router.post('/guardado_resena', controResena.guarda_resena);
 
 // PAGINA 11
 
-// router.get('/resenas', controllers.pagina11);
+
 router.post('/validar/', controResena.validar);
-//router.get('/validar/:id_usuario', controResena.user);
+
+
 router.get('/resenas/:id_usuario', controResena.user); // Es la pagina del LOGIN con las reseñas del usuario
 
 
@@ -91,7 +92,7 @@ router.get('/resenas/:id_usuario', controResena.user); // Es la pagina del LOGIN
 
 
 router.get('/detalle/:id_usuario', controUser.detalle);
-router.get('/detalle/:id_usuario', controUser.detalle);
+
 
 // -------------------------------------------------------------------------------------------------
 

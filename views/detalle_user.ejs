@@ -96,6 +96,9 @@
         <p><%=unUser.generos_fav%></p>
         <br>
         <h1>Reseñas del Usuario: </h1>
+        <% if (unUser.resenas.length == 0 ) { %>
+          <h3>No has hecho ninguna reseña todavía ... </h3>
+        <% } else { %>
         <ul>
           <% for (let i = 0; i < unUser.resenas.length; i++) { %>
               <li>
@@ -103,6 +106,7 @@
               </li>
           <% } %>
       </ul>
+      <% } %>
     </section>
 
 
